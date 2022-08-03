@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./Header";
+import Mid from "./Mid";
 import Categories from "./Categories";
 const Home = () => { 
     return ( <>
-    <Header />
+    <Mid />
     <main>
          <Categories></Categories>
     </main>                   </>);  

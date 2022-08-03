@@ -40,7 +40,7 @@ function A() {
 
   return (
     <div className="App">
-      <Header countCartItems={cartItems.length}></Header>
+     
       <div className="row">
         <Main products={products} onAdd={onAdd}></Main>
         {/* <Basket

@@ -1,24 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import CartButton from "./CartButton";
 import IMG2 from "../pictures/2.jpg"
 import "./home.css";
 import IMG3 from "../pictures/3.jpg"
 import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Mid = () => {
 
     return (
         <>
             <header className="K">
-                <form className="IN">
-                <div className="div1">
-                    <CartButton >  </CartButton>
-                    <label> <NavLink to='/signin' >Log In</NavLink> </label>
-                    <label> <NavLink to='/signup' >Sign Up</NavLink> </label>
-                </div>
-                </form>
+                
 
                 <form className=" form3">
                     <form className="form4">
@@ -40,4 +32,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default Mid;
