@@ -4,7 +4,7 @@ import React from 'react';
 import {Routes , Route} from 'react-router-dom'
 import Home from './home page/Home';
 import A from './card/A';
-
+import Admin from './Admin/Admin';
 import Cardpay from './security payment/Cardpay';
 
 
@@ -18,6 +18,8 @@ function App() {
     <Route path = '/Signup' element = {<Signup />} />
     <Route path = '/A' element ={<A/>} />
     <Route path = '/payment' element ={<Cardpay/>} />
+    <Route path = '/admin' element ={<Admin/>} />
+
     </Routes>
   );
 }
