@@ -1,14 +1,17 @@
 /* The first line */
 .IN {
     width: 100%px;
-    height: 30px;
+    height: 40px;
     background-color: #a622b2;
     text-align: center;
+    display: block;
+
 }
 
 
 .div1 {
     margin-left: 1000px;
+    height: 20px;
 }
 
 .IN label {
