@@ -1,0 +1,171 @@
+/*Sign UP CSS*/
+
+.App {
+  text-align: center;
+}
+
+.t {
+  color: plum;
+  font-family: cursive;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  font-size: 200;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: white;
+
+}
+
+.App button {
+  background-color: plum;
+  border: 2px;
+  border-radius: 60px;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.hi {
+  margin-top: 10px;
+  font-size: 60px;
+  color: black;
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: white;
+  box-shadow: 1px white;
+  font-weight:900;
+  opacity: 1;
+  position: relative;
+
+}
+
+
+.container label {
+  font-size: 20px;
+}
+
+.labelss {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+input {
+  font-family: cursive;
+  font-size: 16px;
+  background-color: white;
+}
+
+.form1 {
+
+  margin-top: 20px;
+  border-radius: 50px;
+  width: 500px;
+  background-color: black;
+  height: 400px;
+  position: relative;
+  font-family: cursive;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.App-header {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+
+}
+
+.IMG {
+  position: absolute;
+  width: 100%;
+  z-index: 0px;
+  opacity: 1;
+}
+
+/* Sign_in CSS*/
+
+.hey {
+  padding-top: 20px;
+  font-size: 100px;
+  margin: 0 !important;
+  position: relative;
+  text-align: center;
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: plum;
+}
+
+.form2 {
+  width: 400px;
+  height: 360px;
+  font-family: cursive;
+  left: 35%;
+  text-align: center;
+  background-color: black;
+  border-radius: 50px;
+  position: relative;
+  margin-top: 35px;
+}
+
+.signinlabel {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: x-large;
+}
+
+#l1 {
+  padding-top: 60px;
+}
+
+#l2 {
+  padding-top: 40px;
+}
+
+.IMG1 {
+  margin: 0 !important;
+  position: absolute;
+  width: 50%;
+  opacity: 1;
+  z-index: 0;
+  height: 100%;
+}
+
+.b1 {
+  background-color: plum;
+  border: 2px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+a {
+  position: relative;
+  left: 20px;
+  color: plum;
+}
+
+.Main {
+  background-color: plum;
+  height: 100vh;
+}
