@@ -25,14 +25,15 @@ function App() {
       <Prov>
         {clicked && <Cart onClose={hidden} />}
         <Navbar show={clickHandler} />
-      </Prov>
+     
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Signup" element={<Signup />} />
-        <Route path="/A" element={<A />} />
+        <Route path="/all" element={<A />} />
         <Route path="/payment" element={<Cardpay />} />
       </Routes>
+      </Prov>
     </>
   );
 }
