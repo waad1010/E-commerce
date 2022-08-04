@@ -19,11 +19,11 @@ export default function Product(props) {
        });
     };
   return (
-    <div>
+    <span>
       <img className="small" src={props.image} alt={props.title} />
       <h3>{props.title}</h3>
       <div>${props.price}</div>
       <div><Form onAddToCart ={addHandler}/></div>
-    </div>
+    </span>
   );
 }
