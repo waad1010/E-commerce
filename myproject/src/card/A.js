@@ -1,8 +1,6 @@
-import Header from './header';
 import Main from './Main';
 import data from '../Data';
 import { useState } from 'react';
-import Basket from '../Basket';
 
 
 function A() {

@@ -3,8 +3,6 @@ import IMG2 from "../pictures/2.jpg"
 import "./home.css";
 import IMG3 from "../pictures/3.jpg"
 import { Link } from "react-router-dom";
-
-
 const Mid = () => {
 
     return (

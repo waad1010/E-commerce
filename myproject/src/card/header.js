@@ -6,7 +6,7 @@ export default function Header(props) {
   return (
     <header className="block row center">
 
-      <div>
+      <div className='ccc'>
         <a href="#/cart"> <Link to='/cart'> 
           Cart{' '}
           {props.countCartItems ? (

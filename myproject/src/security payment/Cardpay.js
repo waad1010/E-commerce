@@ -66,7 +66,6 @@ const Cardpay = () => {
         <label >Address: </label>
         <input type="text" value={address} required onChange={(e) => { handleaddress(e) }} />
       </div>
-
       <button type="submit"> Submit</button>
     </form>
     </form>
@@ -74,8 +73,6 @@ const Cardpay = () => {
   </>
   );
 }
-
-
 
 
 export default Cardpay;

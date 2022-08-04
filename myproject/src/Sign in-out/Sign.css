@@ -12,7 +12,6 @@
   font-size: 200;
   -webkit-text-stroke-width: 0.2px;
   -webkit-text-stroke-color: white;
-
 }
 
 .App button {
@@ -39,7 +38,6 @@
   font-weight:900;
   opacity: 1;
   position: relative;
-
 }
 
 
@@ -90,7 +88,6 @@ input {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-
 }
 
 .IMG {
@@ -160,7 +157,7 @@ input {
   cursor: pointer;
 }
 
-a {
+.form2 a {
   position: relative;
   left: 20px;
   color: plum;

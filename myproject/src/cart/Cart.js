@@ -3,6 +3,7 @@ import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import AuthCart from "../store/cart-context";
+import { Link } from "react-router-dom";
 const Cart = (props) => {
 
   const ctx = useContext(AuthCart);
@@ -71,12 +72,14 @@ const Cart = (props) => {
               ></CartItem>
             ))}
           </ul>
+
           <div className={styles.total}>
             <span>Total amount : </span>
             <span>$ {totalAmount}</span>
           </div>
 
           <div className={styles.actions}>
+           <Link to ="/payment"> <button> CheckOut </button></Link>
             <button onClick={props.onClose}>Close </button>
             {notE && <button >Order</button>}
           </div>

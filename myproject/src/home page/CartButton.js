@@ -10,9 +10,7 @@ const CartButton = (props) => {
   const res = items.reduce(
     (x, item) => {
       return x + item.amount;
-    },
-
-    0
+    },    0
   );
 
   const btncls = `${styles.button} ${clicked ? styles.bump : ""}`;

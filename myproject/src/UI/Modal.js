@@ -9,27 +9,19 @@ const BD = props => {
 }
 
 const Overlay = props => { 
-
-
      return  <div className={styles.modal}>
             <div className={styles.content}> {props.children } </div>
-
-
      </div>
 }
 
 const Modal = props => { 
-
-
 
     return (<>
     {ReactDOM.createPortal (<BD onClose = {props.onClose}/>, document.getElementById('overlays'))}
     {ReactDOM.createPortal (<Overlay> {props.children}  </Overlay>, document.getElementById('overlays'))}
     
     
-    </>)
-    
-    ;
+    </>);
 }
 
 
