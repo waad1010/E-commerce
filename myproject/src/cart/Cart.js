@@ -64,7 +64,7 @@ const Cart = (props) => {
             {ctx.items.map((item) => (
               <CartItem
                 key={item.id}
-                amount={item.amount}
+                amount= {item.amount}
                 title={item.title}
                 price={item.price}
                 onAdd={onAdd.bind(null, item)}
