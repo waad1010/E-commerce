@@ -1,13 +1,8 @@
 import Main from './Main';
 import data from '../Data';
-<<<<<<< HEAD
-import { useState } from 'react';
-
-=======
 import { useState , useEffect } from 'react';
 import Basket from '../Basket';
 import axios from 'axios';
->>>>>>> f0fb6f4f813af1959b4c3b3d6c29b2694042a5eb
 
 function A() {
   const [products, setProducts] = useState ( [] ) ;

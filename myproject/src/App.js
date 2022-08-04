@@ -22,12 +22,7 @@ function App() {
       <Prov>
         {clicked && <Cart onClose={hidden} />}
         <Navbar show={clickHandler} />
-<<<<<<< HEAD
-      </Prov>
-
-=======
-     
->>>>>>> f0fb6f4f813af1959b4c3b3d6c29b2694042a5eb
+             
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
