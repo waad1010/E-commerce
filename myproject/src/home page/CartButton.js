@@ -1,25 +1,49 @@
-import React from "react";
-import "./home.css"
-import {FaShoppingBag} from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import styles from "./HeaderButton.module.css";
+import MyIcon from "./MyIcon";
+import AuthCart from "../store/cart-context";
+const CartButton = (props) => {
+  const [clicked, setClicked] = useState(false);
+
+  const ctx = useContext(AuthCart);
+  const { items } = ctx;
+  const res = items.reduce(
+    (x, item) => {
+      return x + item.amount;
+    },
+
+    0
+  );
+
+  const btncls = `${styles.button} ${clicked ? styles.bump : ""}`;
 
 
-const CartButton = () => {
+  useEffect(() => {
+    if (items.length === 0) {
+      return;
+    }
+    setClicked(true);
+    const timing = setTimeout(
+      () => {
+        setClicked(false);
+      },
 
+      300
+    );
+    return () => {
+      clearTimeout(timing);
+    };
+  }, [items]);
 
-  return (<>
-
-    <button><Link to='/payment'>
-
-      
-      <span><FaShoppingBag /></span>
-      <span> 0 </span></Link>
-
+  return (
+    <button className={btncls} onClick={props.show}>
+      <span className={styles.icon}>
+        
+        <MyIcon />
+      </span><span>Your Cart</span>
+      <span className={styles.badge}>{res}</span>
     </button>
+  );
+};
 
-  </>);
-
-
-}
-
-export default CartButton; 
+export default CartButton;
