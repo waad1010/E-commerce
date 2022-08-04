@@ -1,48 +1,64 @@
 import Header from './header';
 import Main from './Main';
 import data from '../Data';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import Basket from '../Basket';
-
+import axios from 'axios';
 
 function A() {
-  const { products } = data;
-  const [cartItems, setCartItems] = useState([]);
-  const onAdd = (product) => {
-  const exist = cartItems.find((x) => x.id === product.id);
+  const [products, setProducts] = useState ( [] ) ;
+    const [loading , setLoading] = useState (false);
+    const [Error , setError] = useState (null);
 
 
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
-    }
-  };
+
+    useEffect ( 
+        () => {
+            const fetchM = async () => {
+                setLoading(true);
+                const res = await axios.get('http://localhost:8080/all');
+          
+                console.log(res.data);
 
 
-  const onRemove = (product) => {
-    const exist = cartItems.find((x) => x.id === product.id);
-    if (exist.qty === 1) {
-      setCartItems(cartItems.filter((x) => x.id !== product.id));
-    } else {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty - 1 } : x
-        )
-      );
-    }
-  };
+                const Data = await res.data;
+                const loaded = [];
+
+                for (const k in Data){
+                    loaded.push ({
+                        id : Data[k].Id,
+                        title : Data[k].title,
+                        price : Data[k].price,
+                        description : Data[k].description,
+                    })
+                }
+                setProducts(loaded);
+                setLoading(false);
+
+            }
+
+            fetchM().catch ( e =>{
+                setLoading(false);
+                setError (e.message)
+            });
+            }
+            
+        
+        
+        , []) ;
 
 
+        if (Error){
+            return <p>{Error}</p>
+        }
+        if (loading){
+            return <p>is Loading...</p>
+        }
   return (
     <div className="App">
      
       <div className="row">
-        <Main products={products} onAdd={onAdd}></Main>
+        <Main products={products} ></Main>
         {/* <Basket
           cartItems={cartItems}
           onAdd={onAdd}

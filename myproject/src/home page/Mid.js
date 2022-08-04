@@ -18,7 +18,7 @@ const Mid = () => {
                         <div className="div2">
                             <h2> New Summer Collection!! </h2>
                             <label> The largest range of LUXURY</label>
-                            <Link to ="/A"> <button> Shop Now!</button></Link>
+                            <Link to ="/all"> <button> Shop Now!</button></Link>
                         </div>
                 </form>
 
