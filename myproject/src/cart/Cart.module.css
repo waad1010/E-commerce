@@ -23,7 +23,7 @@
     font: inherit;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid pink;
+    border: 1px solid purple;
     padding: 0.5rem 2rem;
     border-radius: 25px;
     margin-left: 1rem;
@@ -31,8 +31,8 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: pink;
-    border-color: pink;
+    background-color: purple;
+    border-color: purple;
     color: white;
   }
   

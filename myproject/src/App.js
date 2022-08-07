@@ -8,6 +8,9 @@ import React, { useState } from "react";
 import { Prov } from "./store/cart-context";
 import Navbar from "./home page/Navbar";
 import Cart from "./cart/Cart";
+import Spec from "./home page/Spec"
+
+import Product from "./card/Product";
 
 function App() {
 
@@ -30,6 +33,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Signup" element={<Signup />} />
+        <Route path="/:category/items" element={ <Spec />}/>
         <Route path="/all" element={<A />} />
         <Route path="/payment" element={<Cardpay />} />
       </Routes>

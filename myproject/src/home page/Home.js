@@ -1,11 +1,11 @@
 import React from "react";
 import Mid from "./Mid";
-import Categories from "./Categories";
+import Cats from "./Cats";
 const Home = () => { 
     return ( <>
     <Mid />
     <main>
-         <Categories></Categories>
+         <Cats></Cats>
     </main>                   </>);  
 
 }
