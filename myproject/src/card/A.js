@@ -22,6 +22,19 @@ function A() {
 
 
                 const Data = await res.data;
+              //   const Data  = [{
+              //     id : 1,
+              //     title : "Dresses",
+              //     description : "AA"
+
+              //   },
+              //   {
+              //     id : 2,
+              //     title : "Top",
+              //     description : "AA"
+
+              //   }
+              // ]
                 const loaded = [];
 
                 for (const k in Data){
