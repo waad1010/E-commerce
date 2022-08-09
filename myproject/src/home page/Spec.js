@@ -94,7 +94,7 @@ const Spec = () => {
 
                 for (const k in categoryItems){
                     loaded.push ({
-                        id : categoryItems[k].id,
+                        id : categoryItems[k].Id,
                         title : categoryItems[k].title,
                         price : categoryItems[k].price,
                         description : categoryItems[k].description,

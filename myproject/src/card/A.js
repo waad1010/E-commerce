@@ -2,7 +2,7 @@ import Header from './header';
 import Main from './Main';
 import data from '../Data';
 import { useState , useEffect } from 'react';
-import Basket from '../Basket';
+import Search from '../Search/Search';
 import axios from 'axios';
 
 function A() {
@@ -38,6 +38,7 @@ function A() {
                 const loaded = [];
 
                 for (const k in Data){
+                  console.log("zz : " + Data[k].Id)
                     loaded.push ({
                         id : Data[k].Id,
                         title : Data[k].title,
@@ -68,17 +69,13 @@ function A() {
             return <p>is Loading...</p>
         }
   return (
-    <div className="App">
-     
-      <div className="row">
+    
+       
+      <div >
+        
         <Main products={products} ></Main>
-        {/* <Basket
-          cartItems={cartItems}
-          onAdd={onAdd}
-          onRemove={onRemove}
-        ></Basket> */}
       </div>
-    </div>
+   
   );
 
 
