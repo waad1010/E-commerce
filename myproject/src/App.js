@@ -10,6 +10,7 @@ import Navbar from "./home page/Navbar";
 import Cart from "./cart/Cart";
 import Spec from "./home page/Spec"
 import Product from "./card/Product";
+import Searchcont from "./Search/Searchcont";
 
 function App() {
 
@@ -28,10 +29,13 @@ function App() {
       <Prov>
         {clicked && <Cart onClose={hidden} />}
         <Navbar show={clickHandler} />
+
+        
      
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
+        <Route path="/Searched" element={<Searchcont />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/:category/items" element={ <Spec />}/>
         <Route path="/all" element={<A />} />
