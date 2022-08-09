@@ -24,6 +24,7 @@ function App() {
   };
   return (
     <>
+     
       <Prov>
         {clicked && <Cart onClose={hidden} />}
         <Navbar show={clickHandler} />

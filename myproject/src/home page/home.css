@@ -5,9 +5,7 @@
     background-color: #a622b2;
     text-align: center;
     display: block;
-
 }
-
 
 .div1 {
     margin-left: 1000px;
@@ -26,10 +24,7 @@
     cursor: pointer;
 }
 
-
-
 /*The second*/
-
 .IMG2 {
     width: 350px;
     height: 300px;
@@ -75,6 +70,8 @@ h2 {
     display: flex;
     flex-direction: column;
     position: relative;
+    /* width: 50%;
+    border: solid 2px black; */
 }
 
 .div2 h2 {
@@ -109,7 +106,6 @@ h2 {
 }
 
 /*Categories Tables*/
-
 .p1 {
     text-align: center;
     color: #a622b2;
@@ -135,7 +131,6 @@ h2 {
     display: flex;
     flex-direction: column;
     text-align: center;
-
 }
 
 .table1 td {
@@ -147,7 +142,6 @@ h2 {
 }
 
 /* row 1*/
-
 .IMG4 {
     position: relative;
     left: 70px;
@@ -161,9 +155,3 @@ h2 {
     font-style: italic;
     font-weight: bold;
 }
-
-
-
-
-
-
