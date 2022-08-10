@@ -37,6 +37,8 @@ const Signin = () => {
                     // cursorStyle='.'deleteSpeed={50}   delaySpeed={10000}
                     />
                 </strong> </div>
+
+                
                 <form className='form2'>
                     <label className='signinlabel' id="l1">Email:</label>
                     <input type="email" value={email} required onChange={(e) => { handleEmail(e) }} />

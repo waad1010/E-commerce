@@ -4,8 +4,10 @@ import "./Sign.css"
 import Signupimg from "../pictures/14.webp"
 import Signupimg2 from "../pictures/17.webp"
 import Fader from './Fader';
-
-
+// import { AnimateOnChange } from "@nearform/react-animation"
+// <AnimateOnChange>
+//   Your content, components etc here
+// </AnimateOnChange>
  
 
 const Signup = () => {

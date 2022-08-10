@@ -18,7 +18,7 @@
 
 .searchBox:hover > .searchInput {
   width: 400px;
-  padding: 0 6px;
+
 }
 
 .searchBox:hover > .searchButton {
@@ -49,10 +49,8 @@ color : purple;
   font-size: 16px;
   /* transition: 0.4s; */
   line-height: 40px;
-  
- 
- 
-}
+  padding-left: 20px;
+  }
 
 @media screen and (max-width: 620px) {
 .searchBox:hover > .searchInput {
@@ -60,3 +58,4 @@ color : purple;
   padding: 0 6px;
 }
 }
+

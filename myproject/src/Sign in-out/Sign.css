@@ -110,9 +110,9 @@ input {
 /* Sign_in CSS*/
 
 .hey {
-  padding-top: 20px;
+  
   font-size: 100px;
-  margin: 0 !important;
+  margin-bottom: 35px;
   position: relative;
   text-align: center;
   -webkit-text-stroke-width: 0.4px;
@@ -176,3 +176,4 @@ a {
   background-color: plum;
   height: 100vh;
 }
+
