@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import "./Sign.css"
 import Signupimg from "../pictures/14.webp"
+import Signupimg2 from "../pictures/17.webp"
+import Fader from './Fader';
+
 
  
 
@@ -52,8 +55,9 @@ const Signup = () => {
         <div className="App">
             <header className="App-header">
                 <img className='IMG' src= {Signupimg} ></img>
-                
-                <div class='hi'>Welcome to our online woman Shop! </div>
+                <img className='IMGS2' src= {Signupimg2} ></img>
+               <Fader/>
+            
                 <form className='form1' onSubmit={(e) => { handleSubmit(e) }}>
                     <h1 className='t'> Sign Up </h1>
 
@@ -90,6 +94,7 @@ const Signup = () => {
                     <button type="submit"> Submit</button>
 
                 </form>
+          
             </header>
         </div>
     );

@@ -13,74 +13,55 @@ import 'swiper/css/autoplay';
 
 function createSlide() {
 
-    return (
-        <>
+  return (
+    <>
       <SwiperSlide>
-        
-            <header className="K" >
-                <form className=" form3">
-                    <form className="form4">                    
-                    <img className='IMG2' src={IMG2} ></img> 
-                  
-                             <div className="div2">
-                            <h2> New Summer Collection!! </h2>
-                            <label> The largest range of LUXURY</label>
-                            <Link to ="/all"> <button> Shop Now!</button></Link>
-                        </div>
+
+        <header className="K" >
+          <form className=" form3">
+            <form className="form4">
+              <img className='IMG2' src={IMG2} ></img>
+
+              <div className="div2">
+                <h2> New Summer Collection!! </h2>
+                <label> The largest range of LUXURY</label>
+                <Link to="/all"> <button> Shop Now!</button></Link>
+              </div>
 
 
 
-                </form>
-                <img className="IMG3" src={IMG3} />
-                </form>
-               
+            </form>
+            <img className="IMG3" src={IMG3} />
+          </form>
 
-            </header>
-        
+
+        </header>
+
       </SwiperSlide>
-     
-      </>
-      
-    );
-  }
+
+    </>
+
+  );
+}
 
 const Mid = () => {
 
-    
-    var e = true;
+  return (
 
-    return (
-        
-      <Swiper 
+    <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       slidesPerView={1}
       navigation
-      autoplay={{ delay: 5000 }}
-      speed={4000}
+      autoplay={{ delay: 2000 }}
+      speed={5000}
       pagination={{ clickable: true }}
     >
-
-    {createSlide() }
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-    {createSlide() }
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-     
-    
-
-     
+      {createSlide()}
+      {createSlide()}
+      {createSlide()}
+      {createSlide()}
     </Swiper>
-
-
-
-    );
+  );
 }
 
 export default Mid;
