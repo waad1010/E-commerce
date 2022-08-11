@@ -1,0 +1,33 @@
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.fade-in {
+    transition: opacity 1s ease;
+    font-size: 55px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.fade-out {
+    font-size: 55px;
+    opacity: 0;
+    transition: opacity 1s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
