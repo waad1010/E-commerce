@@ -6,14 +6,14 @@ import A from "./card/A";
 import FlashMessage from "react-flash-message";
 import Cardpay from "./security payment/Cardpay";
 import React, { useState , useContext } from "react";
-import {toast , ToastContainer} from 'react-toastify'
+
 import { Prov } from "./store/cart-context";
 import Navbar from "./home page/Navbar";
 import Cart from "./cart/Cart";
 import Spec from "./home page/Spec"
 import Product from "./card/Product";
 import Searchcont from "./Search/Searchcont";
-import 'react-toastify/dist/ReactToastify.css';
+
 import AuthContext from "./store/auth-context";
 import Error from './Flash/Error'
 
@@ -25,7 +25,7 @@ function App() {
 
   const clickHandler = () => {
     setClicked(true);
-    toast.error("aa");
+    
   
     
   };

@@ -8,7 +8,6 @@ import FlashMessage from 'react-flash-message'
 import { useNavigate } from "react-router-dom";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error"
-import { toast , ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const [firstname, setFN] = useState("");
