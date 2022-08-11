@@ -9,21 +9,10 @@ const Config= {
     user : "PSSTrainee9",
 
     options:{
-
         trustServerCertificate:true,
-
         trustedConnection:true,
-
-       
-
-
-
     },
-
-
 }
-
-
 
 
 module.exports = Config;

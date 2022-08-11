@@ -159,7 +159,7 @@ body {
     border-radius: 100px;
     color: white;
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 15px;
     cursor: pointer;
     margin: 0px;

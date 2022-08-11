@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Sign.css";
-import SigninPic from "../pictures/13.webp";
+import SigninPic from "../pictures/Cats/13.webp";
 import axios from "axios";
 import AuthContext from "../store/auth-context";
 import FlashMessage from "react-flash-message";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -26,6 +27,17 @@ const Signin = () => {
 
   const SubH = (e) => {
     e.preventDefault();
+
+
+    //email
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+    //password
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    }
 
     const UserData = {
       email,
@@ -79,7 +91,17 @@ const Signin = () => {
             <Error text={done.status} />
           </FlashMessage>
         )}
-          <strong>Welcome Again!! </strong>{" "}
+         <strong>
+                    <Typewriter
+                        words={['Welcome Again!']}
+                        typeSpeed={180}
+                    // loop={1000}
+                    // cursor
+                    // cursorStyle='.'
+                    // deleteSpeed={50}   
+                    // delaySpeed={10000}
+                    />
+                </strong> 
         </div>
 
         <form className="form2" onSubmit={SubH}>

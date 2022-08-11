@@ -1,14 +1,15 @@
-import React, { useState } from "react";
-import "./Sign.css";
-import Signupimg from "../pictures/14.webp";
+
 import axios, { AxiosError } from "axios";
 import Spinner from "../home page/Spinner"
 
+import React, { useState } from 'react';
+import "./Sign.css"
+
+import Fader from './Fader';
 import FlashMessage from 'react-flash-message'
 import { useNavigate } from "react-router-dom";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error"
-import { toast , ToastContainer } from "react-toastify";
 
 const Signup = () => {
   const [firstname, setFN] = useState("");
@@ -79,6 +80,7 @@ const Signup = () => {
     })
       
 
+
     .catch (error => {
       setLoading(false);
       console.log(error.response.data);
@@ -90,6 +92,7 @@ const Signup = () => {
   })
         
           
+
 
 
 
@@ -124,6 +127,7 @@ const Signup = () => {
     <div className="we">
    
       <header className="we-header">
+      <Fader/>
         {done.status === 'Done' && (<FlashMessage Duration = {8000}
         >
           <Success text = "Successfuly Registered!" />
@@ -137,7 +141,7 @@ const Signup = () => {
         
         {/* <img className="IMG" src={Signupimg}></img> */}
        
-        <div class="hi">Welcome to our online woman Shop! </div>
+      
         <form
           className="form1"
           onSubmit={(e) => {
@@ -224,6 +228,7 @@ const Signup = () => {
            
          Submit
           </button>
+
 }
         </form>
       </header>

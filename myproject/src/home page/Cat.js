@@ -15,7 +15,7 @@ const Cat = (props) => {
         <Link className = "card" to= {`./${id}/items`}>
     
       <div class="imgBx">
-          <img src= {require(`../pictures/${img}`) }alt="images" />
+          <img src= {require(`../pictures/Cats/${img}`) }alt="images" />
       </div>
       <div class="details">
         <br></br>

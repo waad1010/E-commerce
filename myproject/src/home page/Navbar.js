@@ -3,9 +3,10 @@ import CartButton from "./CartButton";
 import styles from "./Navbar.module.css";
 import { NavLink ,useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
-import IMG from '../pictures/logo2.jpg'
+
 import { useContext } from "react";
 import AuthContext from "../store/auth-context";
+
 const Navbar = (props) => {
   const authLogin = useContext(AuthContext);
   const isLoggedIn = authLogin.isLoggedIn;
