@@ -3,14 +3,10 @@ import CartButton from "./CartButton";
 import styles from "./Navbar.module.css";
 import { NavLink ,useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
-<<<<<<< HEAD
 
-
-=======
-import IMG from '../pictures/logo2.jpg'
 import { useContext } from "react";
 import AuthContext from "../store/auth-context";
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
 const Navbar = (props) => {
   const authLogin = useContext(AuthContext);
   const isLoggedIn = authLogin.isLoggedIn;

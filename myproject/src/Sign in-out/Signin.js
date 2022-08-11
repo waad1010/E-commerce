@@ -1,24 +1,14 @@
-<<<<<<< HEAD
-import React from 'react'
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import "./Sign.css"
-import SigninPic from "../pictures/Cats/13.webp"
-import { Typewriter } from 'react-simple-typewriter'
-
-
-=======
 import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Sign.css";
-import SigninPic from "../pictures/13.webp";
+import SigninPic from "../pictures/Cats/13.webp";
 import axios from "axios";
 import AuthContext from "../store/auth-context";
 import FlashMessage from "react-flash-message";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error";
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+import { Typewriter } from 'react-simple-typewriter'
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +28,7 @@ const Signin = () => {
   const SubH = (e) => {
     e.preventDefault();
 
-<<<<<<< HEAD
+
     //email
     const handleEmail = (e) => {
         setEmail(e.target.value);
@@ -48,12 +38,11 @@ const Signin = () => {
     const handlePassword = (e) => {
         setPassword(e.target.value);
     }
-=======
+
     const UserData = {
       email,
       password,
     };
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
 
     axios
       .post("http://localhost:8080/signin", UserData)
@@ -83,34 +72,6 @@ const Signin = () => {
     setDone({status:null})
   }
 
-<<<<<<< HEAD
-        <div className='Main'>
-            <header >
-                <img className='IMG1' src={SigninPic}></img>
-
-                <div className='hey'> <strong>
-                    <Typewriter
-                        words={['Welcome Again!']}
-                        typeSpeed={180}
-                    // loop={1000}
-                    // cursor
-                    // cursorStyle='.'
-                    // deleteSpeed={50}   
-                    // delaySpeed={10000}
-                    />
-                </strong> </div>
-
-               F <form className='form2'>
-                    <label className='signinlabel' id="l1">Email:</label>
-                    <input type="email" value={email} required onChange={(e) => { handleEmail(e) }} />
-                    <label className='signinlabel' id="l2">Password:</label>
-                    <input type="password" value={password} required onChange={(e) => { handlePassword(e) }} /> <br />
-                    <button type="submit" className='b1'> Submit</button>
-                    <Link to="/Signup">Create new account?</Link>
-                </form>
-
-            </header>
-=======
 
   return (
     <div className="Main">
@@ -130,8 +91,17 @@ const Signin = () => {
             <Error text={done.status} />
           </FlashMessage>
         )}
-          <strong>Welcome Again!! </strong>{" "}
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+         <strong>
+                    <Typewriter
+                        words={['Welcome Again!']}
+                        typeSpeed={180}
+                    // loop={1000}
+                    // cursor
+                    // cursorStyle='.'
+                    // deleteSpeed={50}   
+                    // delaySpeed={10000}
+                    />
+                </strong> 
         </div>
 
         <form className="form2" onSubmit={SubH}>

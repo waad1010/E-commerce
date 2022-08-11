@@ -38,21 +38,16 @@ function createSlide() {
         </header>
 
       </SwiperSlide>
-<<<<<<< HEAD
+
 
     </>
 
   );
 }
-
-=======
      
-      </>
-      
-    );
-  }
+   
   
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
 const Mid = () => {
 
   return (
@@ -62,26 +57,17 @@ const Mid = () => {
       slidesPerView={1}
       navigation
       autoplay={{ delay: 2000 }}
-<<<<<<< HEAD
       speed={5000}
       pagination={{ clickable: true }}
     >
-      {createSlide()}
-      {createSlide()}
-      {createSlide()}
-      {createSlide()}
-=======
-      speed={4000}
-      pagination={{ clickable: true }}
-    >
-
+     
     {createSlide() }
     {createSlide() }
     {createSlide() } 
     {createSlide() }
    
      
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
     </Swiper>
   );
 }

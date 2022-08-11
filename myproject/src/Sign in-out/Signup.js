@@ -1,25 +1,15 @@
-import React, { useState } from "react";
-import "./Sign.css";
-import Signupimg from "../pictures/14.webp";
+
 import axios, { AxiosError } from "axios";
 import Spinner from "../home page/Spinner"
 
-<<<<<<< HEAD
 import React, { useState } from 'react';
 import "./Sign.css"
 
 import Fader from './Fader';
-// import { AnimateOnChange } from "@nearform/react-animation"
-// <AnimateOnChange>
-//   Your content, components etc here
-// </AnimateOnChange>
-=======
 import FlashMessage from 'react-flash-message'
 import { useNavigate } from "react-router-dom";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error"
-import { toast , ToastContainer } from "react-toastify";
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
 
 const Signup = () => {
   const [firstname, setFN] = useState("");
@@ -74,17 +64,6 @@ const Signup = () => {
       password,
     };
 
-<<<<<<< HEAD
-    return (
-        <div className="we">
-            <header className="we-header">
-                {/* <img className='IMG' src= {Signupimg} ></img>
-                <img className='IMGS2' src= {Signupimg2} ></img> */}
-               <Fader/>
-            
-                <form className='form1' onSubmit={(e) => { handleSubmit(e) }}>
-                    <h1 className='t'> Sign Up </h1>
-=======
     setLoading(true);
     axios
     .post("http://localhost:8080/signup", UserData)
@@ -100,7 +79,7 @@ const Signup = () => {
       setDone({status : 'Done'})
     })
       
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
 
     .catch (error => {
       setLoading(false);
@@ -116,13 +95,7 @@ const Signup = () => {
 
 
 
-<<<<<<< HEAD
-                </form>
-          
-            </header>
-        </div>
-    );
-=======
+
 
 
 
@@ -154,6 +127,7 @@ const Signup = () => {
     <div className="we">
    
       <header className="we-header">
+      <Fader/>
         {done.status === 'Done' && (<FlashMessage Duration = {8000}
         >
           <Success text = "Successfuly Registered!" />
@@ -167,7 +141,7 @@ const Signup = () => {
         
         {/* <img className="IMG" src={Signupimg}></img> */}
        
-        <div class="hi">Welcome to our online woman Shop! </div>
+      
         <form
           className="form1"
           onSubmit={(e) => {
@@ -254,7 +228,7 @@ const Signup = () => {
            
          Submit
           </button>
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
 }
         </form>
       </header>
@@ -263,7 +237,3 @@ const Signup = () => {
 };
 
 export default Signup;
-<<<<<<< HEAD
-
-=======
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
