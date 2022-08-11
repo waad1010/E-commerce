@@ -22,21 +22,21 @@
 }
 
 .searchBox:hover > .searchButton {
-background: pink;
-color : purple;
+background: purple;
+color : white;
 }
 
 .searchButton {
-  color: white;
+  color: purple;
   float: right;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: purple;
+  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* transition: 0.4s; */
+  transition: 0.4s;
 }
 
 .searchInput {
@@ -47,8 +47,9 @@ color : purple;
   padding: 0;
   color: black;
   font-size: 16px;
-  /* transition: 0.4s; */
+  transition: 0.4s;
   line-height: 40px;
+ 
   
  
  

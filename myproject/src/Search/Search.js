@@ -54,7 +54,7 @@ function Search(props) {
          value={wordEntered}
          onClick ={ () => {handleClick()}}
         onChange={handleFilter}
-        placeholder="Search.." />
+        placeholder="Search for a product..." />
         
         <button class="searchButton" >
          

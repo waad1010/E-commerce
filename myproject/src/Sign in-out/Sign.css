@@ -1,9 +1,17 @@
 /*Sign UP CSS*/
 
-.App {
+.we {
   text-align: center;
-}
+  background-image: url('../pictures/14.webp');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
 
+}
+ .loadtitle{
+  color : white;
+  background: black;
+ }
 .t {
   color: plum;
   font-family: cursive;
@@ -15,7 +23,12 @@
 
 }
 
-.App button {
+
+.we input {
+  width: 250px;
+}
+
+.we .xd {
   background-color: plum;
   border: 2px;
   border-radius: 60px;
@@ -38,6 +51,7 @@
   box-shadow: 1px white;
   font-weight:900;
   opacity: 1;
+  
   position: relative;
 
 }
@@ -81,7 +95,7 @@ input {
   margin: 0 auto;
 }
 
-.App-header {
+.we-header {
 
   min-height: 100vh;
   display: flex;
@@ -94,9 +108,10 @@ input {
 }
 
 .IMG {
+  margin-top: 40px  !important;
   position: absolute;
   width: 100%;
-  z-index: 0px;
+ z-index: 0;
   opacity: 1;
 }
 
@@ -166,6 +181,7 @@ a {
 }
 
 .Main {
+  margin-top: 50px;
   background-color: plum;
   height: 100vh;
 }

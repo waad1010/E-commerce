@@ -43,7 +43,7 @@ function createSlide() {
       
     );
   }
-
+  
 const Mid = () => {
 
     
@@ -55,7 +55,7 @@ const Mid = () => {
       modules={[Navigation, Pagination, Autoplay]}
       slidesPerView={1}
       navigation
-      autoplay={{ delay: 5000 }}
+      autoplay={{ delay: 2000 }}
       speed={4000}
       pagination={{ clickable: true }}
     >
@@ -64,17 +64,7 @@ const Mid = () => {
     {createSlide() }
     {createSlide() } 
     {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-    {createSlide() }
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-    {createSlide() } 
-    {createSlide() }
-     
-    
-
+   
      
     </Swiper>
 
