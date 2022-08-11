@@ -2,6 +2,7 @@
 
 .we {
   text-align: center;
+<<<<<<< HEAD
   height: 85vh;
     background-color: rgba(187,177,230,255);
   background-image: url("../pictures/Cats/up.jpg");
@@ -11,7 +12,18 @@
 
 
 }
+=======
+  background-image: url('../pictures/14.webp');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
 
+}
+ .loadtitle{
+  color : white;
+  background: black;
+ }
 .t {
   color: plum;
   font-family: cursive;
@@ -20,7 +32,16 @@
   font-size: 200;
 }
 
+<<<<<<< HEAD
 .we button {
+=======
+
+.we input {
+  width: 250px;
+}
+
+.we .xd {
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
   background-color: plum;
   border: 2px;
   border-radius: 60px;
@@ -38,6 +59,11 @@
   font-size: 80px;
   color: black;
   font-weight:900;
+<<<<<<< HEAD
+=======
+  opacity: 1;
+  
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
   position: relative;
 }
 
@@ -79,7 +105,12 @@ input {
 }
 
 .we-header {
+<<<<<<< HEAD
   /* min-height: 100vh; */
+=======
+
+  min-height: 100vh;
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,10 +120,16 @@ input {
 }
 
 .IMG {
+  margin-top: 40px  !important;
   position: absolute;
+<<<<<<< HEAD
   margin-top: 50px;
   left: 800px;
   z-index: 0px;
+=======
+  width: 100%;
+ z-index: 0;
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
   opacity: 1;
   height: 45%;
   border-radius: 40px;
@@ -175,6 +212,7 @@ a {
 }
 
 .Main {
+  margin-top: 50px;
   background-color: plum;
   height: 100vh;
 }

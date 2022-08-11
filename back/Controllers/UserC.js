@@ -56,7 +56,7 @@ const Login = async (req, res) => {
   const { email, password } = req.body;
   let pool = await sql.connect(Config);
   await pool.request().query(
-    `SELECT Email,Password
+    `SELECT Id, FName, LName, DateOfBirth ,Email,Password
     from Users 
     Where Email = '${email}' `,
     (err, result) => {

@@ -6,6 +6,7 @@ import axios from "axios";
 import Cat from "./Cat";
 import "./Cat.css";
 import Search from "../Search/Search";
+import Spinner from "./Spinner";
 
 const Cats = () => {
   const [Cats, setCats] = useState([]);
@@ -86,7 +87,7 @@ const Cats = () => {
     return <p>{Error}</p>;
   }
   if (loading) {
-    return <p>is Loading...</p>;
+    return(<><Spinner></Spinner> <p>Loading...</p></>);
   }
 
   const SwitchData = (data) => {

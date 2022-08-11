@@ -1,11 +1,30 @@
 import React from "react";
 import CartButton from "./CartButton";
 import styles from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
+<<<<<<< HEAD
 
 
+=======
+import IMG from '../pictures/logo2.jpg'
+import { useContext } from "react";
+import AuthContext from "../store/auth-context";
+>>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
 const Navbar = (props) => {
+  const authLogin = useContext(AuthContext);
+  const isLoggedIn = authLogin.isLoggedIn;
+  const nav = useNavigate();
+  var user = JSON.parse(localStorage.getItem("USER"));
+
+  const logoutHandler = () => {
+   
+    authLogin.logout();
+    setTimeout(()=> {
+ nav('/signin')
+    } , 300)
+   
+  }
   return (
     <div className={styles.navbar }>
       <div className={styles.container}> 
@@ -14,13 +33,26 @@ const Navbar = (props) => {
 
 
         </NavLink> 
+        {isLoggedIn && (
+  
+        
+        <span className={styles.welcome}>Welcome {user.FName} </span>
+         ) }
+       
       
         
       <span className={styles.sign}>
       
-       
-       <div><NavLink to="/signin">Log In</NavLink></div> 
-        <div><NavLink to="/signup">Sign Up</NavLink></div>
+       {!isLoggedIn && (
+       <div><NavLink to="/signin">Log In</NavLink></div> )}
+
+       {/* {isLoggedIn && (<div>Profile</div>)} */}
+       {!isLoggedIn && (
+        <div><NavLink to="/signup">Sign Up</NavLink></div> )}
+
+        {isLoggedIn && (
+        <div onClick={logoutHandler}><NavLink to='/'>Log out</NavLink></div> )}
+
         <div> <CartButton show={props.show}> </CartButton></div>
        
       </span></div>

@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'
-import { useParams } from 'react-router-dom';
-import Main from '../card/Main';
-
-
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import Main from "../card/Main";
+import Search from "../Search/Search";
 
 const Spec = () => {
-    const {category} = useParams(); 
-    console.log(category);
-    const [products, setProducts] = useState ( [] ) ;
-    const [loading , setLoading] = useState (false);
-    const [Error , setError] = useState (null);
-    
-    useEffect(() => {
-        const fetchM = async () => {
-           const res = await axios.get(`http://localhost:8080/all`);
-           const Data = await res.data;
-           
+  const { category } = useParams();
+  console.log(category);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [Error, setError] = useState(null);
+  const [Filtred, setFiltered] = useState([]);
+  const ref = useRef();
+
+  useEffect(() => {
+    const fetchM = async () => {
+      const res = await axios.get(`http://localhost:8080/all`);
+      const Data = await res.data;
+
       //     const Data = [
       //       {
       //           id : 112,
@@ -24,7 +25,7 @@ const Spec = () => {
       //           description : "aa",
       //           price : 1500,
       //           cat_id : 1
-    
+
       //         },
       //         {
       //           id : 112,
@@ -32,7 +33,7 @@ const Spec = () => {
       //           description : "ha t you dcan buy for foreeeeeee",
       //           price : 1500,
       //           cat_id : 1
-    
+
       //         },
       //         {
       //           id : 112,
@@ -40,7 +41,7 @@ const Spec = () => {
       //           description : "aa",
       //           price : 1500,
       //           cat_id : 1
-    
+
       //         },{
       //       id : 1,
       //       title : "Dress1" ,
@@ -80,54 +81,56 @@ const Spec = () => {
       //       title : "top1" ,
       //       description : "aa",
       //       price : 2500,
-           
 
       //     }
       //  ]
-            const categoryItems = Data.filter(item => +item.cat_id === +category);
-          //  console.log(categoryItems)
-          //  console.log(res.data);
+      const categoryItems = Data.filter((item) => +item.cat_id === +category);
+      //  console.log(categoryItems)
+      //  console.log(res.data);
 
+      const loaded = [];
 
-    
-                const loaded = [];
-
-                for (const k in categoryItems){
-                    loaded.push ({
-                        id : categoryItems[k].Id,
-                        title : categoryItems[k].title,
-                        price : categoryItems[k].price,
-                        description : categoryItems[k].description,
-                    })
-                }
-                console.log(loaded);
-                setProducts(loaded);
-                setLoading(false);
-
-          
-        }
-        fetchM().catch ( e =>{
-            setLoading(false);
-            setError (e.message)
+      for (const k in categoryItems) {
+        loaded.push({
+          id: categoryItems[k].Id,
+          title: categoryItems[k].title,
+          price: categoryItems[k].price,
+          description: categoryItems[k].description,
         });
-    }, [category])
+      }
+      setFiltered(loaded);
+      setProducts(loaded);
+      setLoading(false);
+    };
+    fetchM().catch((e) => {
+      setLoading(false);
+      setError(e.message);
+    });
+  }, [category]);
 
-
-    if (Error){
-        return <p>{Error}</p>
-    }
-    if (loading){
-        return <p>is Loading...</p>
-    }
-    return (
-        <div className="App">
-     
-        <div className="row">
-          <Main products={products} ></Main>
-        
-        </div>
+  if (Error) {
+    return <p>{Error}</p>;
+  }
+  if (loading) {
+    return <p>is Loading...</p>;
+  }
+  const SwitchData = (data) => {
+    if (data.length) setProducts(data);
+  };
+  const handleClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  return (
+    <div ref = {ref} className="App">
+      <h2 className="title">Products</h2>
+      <Search 
+        handleClick={handleClick}
+      onSearch={SwitchData} data={Filtred} />
+      <div className="row">
+        <Main products={products}></Main>
       </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Spec;

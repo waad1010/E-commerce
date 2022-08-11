@@ -3,6 +3,7 @@ import Modal from "../UI/Modal";
 import styles from "./Cart.module.css";
 import CartItem from "./CartItem";
 import AuthCart from "../store/cart-context";
+import { NavLink } from "react-router-dom";
 const Cart = (props) => {
 
   const ctx = useContext(AuthCart);
@@ -78,7 +79,10 @@ const Cart = (props) => {
 
           <div className={styles.actions}>
             <button onClick={props.onClose}>Close </button>
-            {notE && <button >Order</button>}
+            {notE && <NavLink to='/payment' >
+              <button onClick={props.onClose} >
+              Order </button>
+              </NavLink>}
           </div>
         </>
       
