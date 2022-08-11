@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Sign.css"
-import SigninPic from "../pictures/13.webp"
+import SigninPic from "../pictures/Cats/13.webp"
 import { Typewriter } from 'react-simple-typewriter'
 
 
@@ -32,14 +32,15 @@ const Signin = () => {
                     <Typewriter
                         words={['Welcome Again!']}
                         typeSpeed={180}
-                    // loop={2}
+                    // loop={1000}
                     // cursor
-                    // cursorStyle='.'deleteSpeed={50}   delaySpeed={10000}
+                    // cursorStyle='.'
+                    // deleteSpeed={50}   
+                    // delaySpeed={10000}
                     />
                 </strong> </div>
 
-                
-                <form className='form2'>
+               F <form className='form2'>
                     <label className='signinlabel' id="l1">Email:</label>
                     <input type="email" value={email} required onChange={(e) => { handleEmail(e) }} />
                     <label className='signinlabel' id="l2">Password:</label>

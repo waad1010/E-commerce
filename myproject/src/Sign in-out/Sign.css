@@ -1,10 +1,15 @@
 /*Sign UP CSS*/
 
-.App {
+.we {
   text-align: center;
-  /* background-color: rgba(174,148,211,255); */
-  /* background-color: rgba(180,166,223,255); */
-  background-color: plum;
+  height: 85vh;
+    background-color: rgba(187,177,230,255);
+  background-image: url("../pictures/Cats/up.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: 98px ;
+
+
 }
 
 .t {
@@ -13,10 +18,9 @@
   margin-top: 5px;
   margin-bottom: 25px;
   font-size: 200;
-
 }
 
-.App button {
+.we button {
   background-color: plum;
   border: 2px;
   border-radius: 60px;
@@ -37,7 +41,6 @@
   position: relative;
 }
 
-
 .container label {
   font-size: 20px;
 }
@@ -50,7 +53,6 @@
   text-align: left;
   margin-bottom: 10px;
   color: #fff;
- 
 }
 
 input {
@@ -76,7 +78,7 @@ input {
   margin: 0 auto;
 }
 
-.App-header {
+.we-header {
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;

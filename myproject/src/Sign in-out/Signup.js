@@ -1,14 +1,12 @@
 
 import React, { useState } from 'react';
 import "./Sign.css"
-import Signupimg from "../pictures/14.webp"
-import Signupimg2 from "../pictures/17.webp"
+
 import Fader from './Fader';
 // import { AnimateOnChange } from "@nearform/react-animation"
 // <AnimateOnChange>
 //   Your content, components etc here
 // </AnimateOnChange>
- 
 
 const Signup = () => {
     const [firstname, setFN] = useState('');
@@ -54,10 +52,10 @@ const Signup = () => {
     }
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <img className='IMG' src= {Signupimg} ></img>
-                <img className='IMGS2' src= {Signupimg2} ></img>
+        <div className="we">
+            <header className="we-header">
+                {/* <img className='IMG' src= {Signupimg} ></img>
+                <img className='IMGS2' src= {Signupimg2} ></img> */}
                <Fader/>
             
                 <form className='form1' onSubmit={(e) => { handleSubmit(e) }}>
@@ -103,3 +101,4 @@ const Signup = () => {
 }
 
 export default Signup;
+

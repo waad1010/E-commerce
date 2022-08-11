@@ -3,7 +3,7 @@ import CartButton from "./CartButton";
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 import Search from "../Search/Search";
-import IMG from '../pictures/logo2.jpg'
+
 
 const Navbar = (props) => {
   return (

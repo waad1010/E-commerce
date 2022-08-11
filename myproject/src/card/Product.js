@@ -3,7 +3,7 @@ import './card.css';
 import AuthCart from "../store/cart-context";
 import Form from "./Form";
 import { useContext  } from 'react';
-import IMG from "../pictures/8.jpg"
+import IMG from "../pictures/Cats/8.jpg"
 import { Link } from 'react-router-dom';
 
 export default function Product(props) {

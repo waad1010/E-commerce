@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import SECURE from "../pictures/15.webp"
+import SECURE from "../pictures/Cats/15.webp"
 import "./cardpay.css"
 
 const Cardpay = () => {
