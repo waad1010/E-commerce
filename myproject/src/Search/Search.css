@@ -49,16 +49,15 @@ color : white;
   font-size: 16px;
   transition: 0.4s;
   line-height: 40px;
-<<<<<<< HEAD
+
   padding-left: 20px;
   }
-=======
  
   
  
  
-}
->>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
+
+
 
 @media screen and (max-width: 620px) {
 .searchBox:hover > .searchInput {
