@@ -4,14 +4,15 @@
   text-align: center;
 
   height: 85vh;
-    background-color: rgba(187,177,230,255);
+  background-color: rgba(187, 177, 230, 255);
   background-image: url("../pictures/Cats/up.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position-y: 98px ;
+  background-position-y: 98px;
 
 
 }
+
 /* =======
   background-image: url('../pictures/14.webp');
   background-repeat: no-repeat;
@@ -20,10 +21,11 @@
 >>>>>>> 6d40071f84dd3b4b4ba81354a9142f57646a9006
 
 } */
- .loadtitle{
-  color : white;
+.loadtitle {
+  color: white;
   background: black;
- }
+}
+
 .t {
   color: plum;
   font-family: cursive;
@@ -58,10 +60,10 @@
 .hi {
   font-size: 80px;
   color: black;
-  font-weight:900;
+  font-weight: 900;
 
   opacity: 1;
-  
+
 
   position: relative;
 }
@@ -105,10 +107,6 @@ input {
 
 .we-header {
 
-  /* min-height: 100vh; */
-
-  min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,14 +116,14 @@ input {
 }
 
 .IMG {
-  margin-top: 40px  !important;
+  margin-top: 40px !important;
   position: absolute;
 
   margin-top: 50px;
   left: 800px;
   z-index: 0px;
   width: 100%;
- z-index: 0;
+  z-index: 0;
 
   opacity: 1;
   height: 45%;
@@ -146,7 +144,7 @@ input {
 /* Sign_in CSS*/
 
 .hey {
-  
+
   font-size: 100px;
   margin-bottom: 35px;
   position: relative;
@@ -213,4 +211,3 @@ a {
   background-color: plum;
   height: 100vh;
 }
-
