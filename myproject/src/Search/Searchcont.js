@@ -75,7 +75,7 @@ const Searchcont = (props) => {
     //     },
     //   ];
       const categoryItems = Data.filter((item) =>
-        item.title.toLowerCase().startsWith(location.state.toLowerCase())
+        item.title.toLowerCase().includes(location.state.toLowerCase())
       );
       //  console.log(categoryItems)
       //  console.log(res.data);
@@ -88,6 +88,8 @@ const Searchcont = (props) => {
           title: categoryItems[k].title,
           price: categoryItems[k].price,
           description: categoryItems[k].description,
+          pic : categoryItems[k].pic,
+          cid : categoryItems[k].cat_id,
         });
       }
       console.log(loaded);
@@ -120,6 +122,8 @@ const Searchcont = (props) => {
               title={m.title}
               price={m.price}
               des={m.description}
+              pic={m.pic}
+              cid={m.cid}
             ></Item>
           ))}
         </ul>

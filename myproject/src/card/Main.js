@@ -10,7 +10,7 @@ export default function Main(props) {
 
  
   return (
-    <main className="block col-2">
+    <main  className="block col-2">
    
      {/* <Search 
       onSearch={SwitchData}
@@ -19,7 +19,12 @@ export default function Main(props) {
        */}
       <div className="row">
         {products.map((m) => (
-          <Product key={m.id} id = {m.id} title ={m.title} price ={m.price} description ={m.description}></Product>
+          <Product key={m.id} id = {m.id} title ={m.title} price ={m.price} 
+          description ={m.description}
+          pic ={m.pic}
+          cid ={m.cid}>
+
+          </Product>
         ))}
       </div>
     </main>

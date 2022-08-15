@@ -16,6 +16,7 @@ import Searchcont from "./Search/Searchcont";
 
 import AuthContext from "./store/auth-context";
 import Error from './Flash/Error'
+import ProDetails from "./card/ProDetails";
 
 function App() {
 
@@ -51,7 +52,9 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/:category/items" element={ <Spec />}/>
         <Route path="/all" element={<A />} />
-       <Route path="/payment" element={authSign.isLoggedIn ? <Cardpay /> : (<><FlashMessage Duration={8000}>
+        <Route path='/product/:p_id' element ={<ProDetails />}></Route>
+       <Route path="/payment" element={authSign.isLoggedIn ? <Cardpay /> :
+        (<><FlashMessage Duration={8000}>
             <Error text="You have to log in to order!" />
           </FlashMessage>
           {/* <Navigate to="/signin" replace /> */}

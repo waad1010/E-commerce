@@ -23,7 +23,10 @@ function Search(props) {
     console.log(searchWord);
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().startsWith(searchWord.toLowerCase());
+      console.log(value.title + " vs " + searchWord);
+      console.log("here e" + value.title.toLowerCase().includes(searchWord.toLowerCase()));
+   
+      return value.title.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
