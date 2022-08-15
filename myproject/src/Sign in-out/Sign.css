@@ -59,10 +59,7 @@
   font-size: 80px;
   color: black;
   font-weight:900;
-
   opacity: 1;
-  
-
   position: relative;
 }
 
@@ -104,10 +101,6 @@ input {
 }
 
 .we-header {
-
-  /* min-height: 100vh; */
-
-  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
