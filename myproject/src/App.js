@@ -6,6 +6,7 @@ import A from "./card/A";
 import FlashMessage from "react-flash-message";
 import Cardpay from "./security payment/Cardpay";
 import React, { useState , useContext } from "react";
+import Adminhome from './admin/Adminhome'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { Prov } from "./store/cart-context";
@@ -46,6 +47,7 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Searched" element={<Searchcont />} />
+        <Route path='/admin' element = {<Adminhome />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/:category/items" element={ <Spec />}/>
         <Route path="/all" element={<A />} />
