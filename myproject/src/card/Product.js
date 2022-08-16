@@ -5,6 +5,8 @@ import Form from "./Form";
 import { useContext  } from 'react';
 import IMG from "../pictures/Cats/8.jpg"
 import { Link } from 'react-router-dom';
+import Rating from './Rating';
+import './Rating.css'
 
 export default function Product(props) {
   const ctx = useContext(AuthCart);
@@ -22,11 +24,14 @@ export default function Product(props) {
     };
   return (
   <div class="a-box">
-    <Link to ='/'>
+     <Link to={`/product/${props.id}`}>
   <div class="img-container">
     <div class="img-inner">
       <div class="inner-skew">
-        <img src={IMG} />
+        <img src=
+         {require(`../pictures/${props.cid}/${props.pic}`)}
+        
+        />
       </div>
     </div>
   </div>
@@ -38,7 +43,10 @@ export default function Product(props) {
       {props.description}
   </div>
   
-  <div ><Form onAddToCart ={addHandler}/></div>
+  <div ><Form onAddToCart ={addHandler}/>
+  <span className='Rate'><Rating  text=' 5 reviews'/></span>
+  
+  </div>
 </div>
 </div>
   );

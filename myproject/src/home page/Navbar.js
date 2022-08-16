@@ -47,7 +47,7 @@ const Navbar = (props) => {
         <div><NavLink to="/signup">Sign Up</NavLink></div> )}
 
         {isLoggedIn && (
-        <div onClick={logoutHandler}><NavLink to='/'>Log out</NavLink></div> )}
+        <NavLink onClick={logoutHandler} to='/'>Log out</NavLink> )}
 
         <div> <CartButton show={props.show}> </CartButton></div>
        

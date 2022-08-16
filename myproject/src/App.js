@@ -5,7 +5,9 @@ import Home from "./home page/Home";
 import A from "./card/A";
 import FlashMessage from "react-flash-message";
 import Cardpay from "./security payment/Cardpay";
-import React, { useState, useContext } from "react";
+import React, { useState , useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import { Prov } from "./store/cart-context";
 import Navbar from "./home page/Navbar";
 import Cart from "./cart/Cart";
@@ -13,12 +15,7 @@ import Spec from "./home page/Spec"
 import Searchcont from "./Search/Searchcont";
 import AuthContext from "./store/auth-context";
 import Error from './Flash/Error'
-import Users from "./admin/pages/Users";
-import ItemsView from "./admin/pages/ItemsView";
-import CatView from "./admin/pages/CatView";
-import Orders from "./admin/pages/Orders";
-import Adminhome from "./admin/Adminhome";
-
+import ProDetails from "./card/ProDetails";
 
 function App() {
 
@@ -32,49 +29,44 @@ function App() {
   const hidden = () => {
     setClicked(false);
   };
+  toast.success("XX");
+  
   return (
-    <>
-
+    <> 
       <Prov>
-
+      
+     
         {clicked && <Cart onClose={hidden} />}
         <Navbar show={clickHandler} />
+        
 
-        <Routes>
-
-          <Route path="/Signin" element={<Signin />} />
-          <Route path="/Searched" element={<Searchcont />} />
-          <Route path="/Signup" element={<Signup />} />
-          <Route path="/:category/items" element={<Spec />} />
-          <Route path="/all" element={<A />} />
-
-
-
-          <Route path='/Admin' element={<Adminhome />}></Route>
-          <Route path='/catview' element={<CatView/>} />
-          <Route path='/itemview' element={<ItemsView/>} />
-          <Route path='/userview' element={<Users/>} />
-          <Route path='/orderview' element={<Orders/>} />
-
-
-
-
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/payment" element={authSign.isLoggedIn ? <Cardpay /> : (<><FlashMessage Duration={8000}>
-
+        
+     
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/Signin" element={<Signin />} />
+        <Route path="/Searched" element={<Searchcont />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/:category/items" element={ <Spec />}/>
+        <Route path="/all" element={<A />} />
+        <Route path='/product/:p_id' element ={<ProDetails />}></Route>
+       <Route path="/payment" element={authSign.isLoggedIn ? <Cardpay /> :
+        (<><FlashMessage Duration={8000}>
             <Error text="You have to log in to order!" />
           </FlashMessage>
           </>)} />
-
-          <Route
-            path="*"
-            element={<Navigate to="/" replace />}
-          />
-        </Routes>
-
-
+       <Route
+        path="*"
+        element={<Navigate to="/" replace />}
+    />
+      </Routes>
+   
+    
+ 
+       
       </Prov>
-    </>
+      <ToastContainer />
+  </>
   );
 }
 

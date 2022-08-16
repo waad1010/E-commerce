@@ -42,6 +42,8 @@ function A() {
           title: Data[k].title,
           price: Data[k].price,
           description: Data[k].description,
+          pic : Data[k].pic,
+          cid : Data[k].cat_id,
         });
       }
       setFiltered(loaded);

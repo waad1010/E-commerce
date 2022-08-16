@@ -151,7 +151,7 @@ const Signup = () => {
          
           <h1 className="t"> Sign Up </h1>
 
-          <div className="container">
+          <div className="containerx">
             <div className="labelss">
               <label> First Name: </label>
               <input

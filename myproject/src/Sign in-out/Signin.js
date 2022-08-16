@@ -91,10 +91,11 @@ const Signin = () => {
             <Error text={done.status} />
           </FlashMessage>
         )}
-         <strong>
+         <strong className="titlex">
                     <Typewriter
                         words={['Welcome Again!']}
                         typeSpeed={180}
+                        
                     // loop={1000}
                     // cursor
                     // cursorStyle='.'

@@ -96,6 +96,8 @@ const Spec = () => {
           title: categoryItems[k].title,
           price: categoryItems[k].price,
           description: categoryItems[k].description,
+          pic : categoryItems[k].pic,
+          cid : categoryItems[k].cat_id,
         });
       }
       setFiltered(loaded);
@@ -121,13 +123,13 @@ const Spec = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div ref = {ref} className="App">
+    <div  className="App">
       <h2 className="title">Products</h2>
       <Search 
         handleClick={handleClick}
       onSearch={SwitchData} data={Filtred} />
-      <div className="row">
-        <Main products={products}></Main>
+      <div  ref = {ref}  className="row">
+        <Main  products={products}></Main>
       </div>
     </div>
   );

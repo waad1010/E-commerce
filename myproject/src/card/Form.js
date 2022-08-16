@@ -1,6 +1,7 @@
 import React, { useContext, useRef , useState} from "react";
 import styles from './Form.module.css'
 import Input from "./Input";
+import Rating from "./Rating";
 const Form = props => {
  
 const [valid, setValid] = useState(true);
@@ -41,8 +42,11 @@ const [valid, setValid] = useState(true);
     
     }}></Input>
 
+
+
        <button >Add to Cart</button>
        {!valid && <p>Please enter a valyue between 1 to 5</p>}
+   
     </form>);
 }
 
