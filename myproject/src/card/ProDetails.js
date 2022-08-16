@@ -9,7 +9,8 @@ import Form from "./Form";
 import Rating from "./Rating";
 import Comment from "./Comment";
 import AuthCart from "../store/cart-context";
-
+import { ToastContainer } from "react-toastify";
+import Spinner from "../home page/Spinner";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -33,70 +34,107 @@ const reducer = (state, action) => {
 };
 
 const ProDetails = (props) => {
-
+  const [This , setThis] = useState({});
   const params = useParams();
   const { p_id } = params;
 
   const ctx = useContext(AuthCart);
-  const addHandler = (amount) => { 
-   
-     ctx.addItem ({
-      id : p_id,
-      title : props.title,
-      amount : amount ,
-      price : props.price, 
-
-
-     });
+  const addHandler = (amount) => {
+    ctx.addItem({
+      id: p_id,
+      title: props.title,
+      amount: amount,
+      price: props.price,
+    });
   };
   let reviewsRef = useRef();
 
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [Comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [Error, setError] = useState(null);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-   
+  var userInfo = JSON.parse(localStorage.getItem("USER"));
 
-    var userInfo = JSON.parse(localStorage.getItem("USER"));
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
 
-    const [{ loading, error, product, loadingCreateReview }, dispatch] =
-      useReducer(reducer, {
-        product: [],
-        loading: true,
-        error: '',
-      });
+      const res = await axios.get(`http://localhost:8080/product/${p_id}/comments`);
+      console.log(res.data);
+      const Data = res.data;
+      const loaded = [];
 
-    useEffect(() => {
-      const fetchData = async () => {
-        dispatch({ type: 'FETCH_REQUEST' });
-        try {
-          const result = await axios.get(`http://localhost:8080/products/${p_id}`);
-          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-        } catch (err) {
-          dispatch({ type: 'FETCH_FAIL', payload: err });
-        }
-      };
-      fetchData(); 
+      for (const k in Data) {
+        console.log(Data[k].Id);
+        loaded.push({
+          id: Data[k].id,
+          Name: Data[k].Name,
+          Comment: Data[k].Comment,
+          Rate: Data[k].Rate,
+          u_id: Data[k].user_id,
+          p_id: Data[k].p_id,
+        });
+      }
 
-    
-    }, [p_id]);
+      setComments(loaded);
+      setLoading(false);
 
-    // const { state, dispatch: ctxDispatch } = useContext(Store);
-    // const { cart, userInfo } = state;
-    // const addToCartHandler = async () => {
-    //   const existItem = cart.cartItems.find((x) => x._id === product._id);
-    //   const quantity = existItem ? existItem.quantity + 1 : 1;
-    //   const { data } = await axios.get(`/api/products/${product._id}`);
-    //   if (data.countInStock < quantity) {
-    //     window.alert('Sorry. Product is out of stock');
-    //     return;
-    //   }
-    //   ctxDispatch({
-    //     type: 'CART_ADD_ITEM',
-    //     payload: { ...product, quantity },
-    //   });
-    //   navigate('/cart');
-    // };
+      try {
+       
+        setLoading(true);
+
+        const PDetails = await axios.get (`http://localhost:8080/product/${p_id}`);
+       
+        const PData = PDetails.data[0];
+        console.log("data", PData)
+  
+        setThis(PData);
+        console.log(This);
+       
+
+        setLoading(false);
+    }
+    catch(e){
+      toast.error(e);
+    }
+    };
+
+    fetchData().catch((e) => {
+      setLoading(false);
+      setError(e.message);
+    });
+  }, [p_id]);
+
+  if (Error) {
+    return <p>{Error}</p>;
+  }
+  if (loading) {
+    return (
+      <>
+        <Spinner></Spinner> <p>Loading...</p>
+      </>
+    );
+  }
+
+  // const { state, dispatch: ctxDispatch } = useContext(Store);
+  // const { cart, userInfo } = state;
+  // const addToCartHandler = async () => {
+  //   const existItem = cart.cartItems.find((x) => x._id === product._id);
+  //   const quantity = existItem ? existItem.quantity + 1 : 1;
+  //   const { data } = await axios.get(`/api/products/${product._id}`);
+  //   if (data.countInStock < quantity) {
+  //     window.alert('Sorry. Product is out of stock');
+  //     return;
+  //   }
+  //   ctxDispatch({
+  //     type: 'CART_ADD_ITEM',
+  //     payload: { ...product, quantity },
+  //   });
+  //   navigate('/cart');
+  // };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -105,68 +143,90 @@ const ProDetails = (props) => {
       toast.error("Please enter comment and rating");
       return;
     }
-    
+
     const toSub = {
-      Name : userInfo.FName,
+      Name: userInfo.FName,
       comment,
       rating,
-      u_id : userInfo.Id,
+      u_id: userInfo.Id,
       p_id,
-    }
+    };
     try {
-      console.log(toSub)
-      const { data } = await axios
-      .post(`http://localhost:8080/products/${p_id}/reviews`, toSub)
-        
-      dispatch({
-        type: "CREATE_SUCCESS",
-      });
+      const { data } = await axios.post(
+        `http://localhost:8080/product/${p_id}`,
+        toSub
+      );
+      console.log(data);
+      
       toast.success("Review submitted successfully");
-      product.reviews.unshift(data.review);
-      product.numReviews = data.numReviews;
-      product.rating = data.rating;
-      dispatch({ type: "REFRESH_PRODUCT", payload: product });
+      <ToastContainer />
+
+      Comments.push({
+        Name: data.Name,
+        Comment: data.comment,
+        Rate: data.rating,
+        u_id: data.u_id,
+        p_id: data.p_id,
+      });
+      setComment("");
+      setRating(0);
+      // product.reviews.unshift(data.review);
+      // product.numReviews = data.numReviews;
+      // product.rating = data.rating;
+      // dispatch({ type: "REFRESH_PRODUCT", payload: product });
       window.scrollTo({
         behavior: "smooth",
         top: reviewsRef.current.offsetTop,
       });
+
+
+      try{
+
+      }
+      catch {
+        
+      }
+ 
     } catch (error) {
-      console.log(toSub)
+      console.log(toSub);
       toast.error(error);
-      dispatch({ type: "CREATE_FAIL" });
     }
   };
 
+  const avg = This.number ? This.rates / This.number : 0 ;
+
   return (
+
     <span class="container">
       <div class="single-product">
         <div class="row">
           <div class="col-6">
             <div class="product-image">
               <div class="product-image-main">
-                <img src={IMG} alt="" id="product-main-image" />
+                <img src= {This.cat_id && This.pic &&  require(`../pictures/${This.cat_id}/${This.pic}`)} 
+
+                  alt="" id="product-main-image" />
               </div>
             </div>
           </div>
           <div class="col-6">
             <div class="product">
               <div class="product-title">
-                <h2>Half Sleve T-shirt for Men</h2>
-              </div>
+                <h2>{This.title}</h2>
+              </div>  
               <div class="product-rating">
-                <Rating />
-                <span class="review">(47 Review)</span>
+                <Rating value={avg} />
+                <span class="review">({This.number ? This.number: 0} Review)</span>
               </div>
               <div class="product-price">
-                <span class="offer-price">$99.00</span>
+                <span class="offer-price">${This.price}</span>
                 {/* <span class="sale-price">$129.00</span> */}
               </div>
 
               <div class="product-details">
                 <h3>Description</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
-                  est magnam quibusdam maiores sit perferendis minima cupiditate
+                 {This.description}
                 </p>
               </div>
               <div class="product-size">
@@ -232,18 +292,9 @@ const ProDetails = (props) => {
             </div>
 
             <div className="list-group-item">
-              <Form onAddToCart ={addHandler}/>
+              <Form onAddToCart={addHandler} />
             </div>
           </div>
-
-          {/* {product.reviews.map((review) => (
-                  <ListGroup.Item key={review._id}>
-                    <strong>{review.name}</strong>
-                    <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
-                    <p>{review.comment}</p>
-                  </ListGroup.Item>
-                ))} */}
 
           {/* {errProductReview && (
                     <Message variant="danger">{errProductReview}</Message>
@@ -255,9 +306,18 @@ const ProDetails = (props) => {
             <br></br>
             <div class="review-heading">REVIEWS</div>
             <p class="mb-20">There are no reviews yet.</p>
-            <div class="comment-container theme--light">
+            <div ref={reviewsRef} class="comment-container theme--light">
               <div class="comments">
-                <Comment />
+                {Comments.map((review) => 
+                (
+                  <Comment
+                    Name={review.Name}
+                    rating={review.Rate}
+                    comment={review.Comment}
+                    
+                  />
+                )
+                  )}
               </div>
             </div>
             <br></br>
@@ -266,8 +326,13 @@ const ProDetails = (props) => {
               <div class="form-group">
                 <label>Your rating</label>
                 <div class="reviews-counter">
-                  <div class="rate" onChange={event => {console.log(event.target.value) ;
-                    setRating(event.target.value)}}>
+                  <div
+                    class="rate"
+                    onChange={(event) => {
+                      console.log(event.target.value);
+                      setRating(event.target.value);
+                    }}
+                  >
                     <input type="radio" id="star5" name="rate" value="5" />
                     <label for="star5" title="text">
                       5 stars
@@ -295,10 +360,14 @@ const ProDetails = (props) => {
               <div class="form-group">
                 <label>Your comment: </label>
                 <br></br>
-                <textarea placeholder="Leave a comment here"
+                <textarea
+                  placeholder="Leave a comment here"
                   value={comment}
-                  onChange={(e) => setComment(e.target.value) }
-                className="form-control" rows="5" cols="100"></textarea>
+                  onChange={(e) => setComment(e.target.value)}
+                  className="form-control"
+                  rows="5"
+                  cols="100"
+                ></textarea>
               </div>
               <br></br>
               <button class="round-black-btn">Submit Review</button>

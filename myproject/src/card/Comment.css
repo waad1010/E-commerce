@@ -248,6 +248,12 @@
   a:hover {
     text-decoration: none !important;
   } */
+
+
+  .date {
+   
+    margin-left: 80% !important;
+  }
   
   .wrapper {
     overflow: auto;
