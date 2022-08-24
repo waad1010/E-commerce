@@ -13,7 +13,7 @@ const [valid, setValid] = useState(true);
 
         const entered = amountref.current.value;
         const Nentered = +entered;
-        if (entered.trim().length === 0 || Nentered < 1 || Nentered > 5){
+        if (entered.trim().length === 0 || Nentered < 1 ){
             setValid(false);
             return ;
 
@@ -26,6 +26,7 @@ const [valid, setValid] = useState(true);
         
             
     }
+    const mx = +props.max;
    
 
     return (<form   className={styles.form} onSubmit={SubHanlder}>
@@ -34,7 +35,7 @@ const [valid, setValid] = useState(true);
         <Input label ="amount"  ref = {amountref}input = {{type : 'number' , 
                      id : 'amount',
                      min : '1' , 
-                     max : '5',
+                     max : props.max,
                      step : '1',
                      defaultValue : '1'
     
@@ -45,7 +46,7 @@ const [valid, setValid] = useState(true);
 
 
        <button >Add to Cart</button>
-       {!valid && <p>Please enter a valyue between 1 to 5</p>}
+       {!valid && <p>Please enter a valyue between 1 to {props.max}</p>}
    
     </form>);
 }

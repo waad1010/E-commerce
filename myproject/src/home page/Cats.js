@@ -7,6 +7,7 @@ import Cat from "./Cat";
 import "./Cat.css";
 import Search from "../Search/Search";
 import Spinner from "./Spinner";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Cats = () => {
   const [Cats, setCats] = useState([]);
@@ -18,7 +19,7 @@ const Cats = () => {
   useEffect(() => {
     const fetchM = async () => {
       setLoading(true);
-      const res = await axios.get("http://localhost:8080");
+      const res = await axios.get("http://localhost:8080/allcats");
 
       console.log(res.data);
       const Data = res.data;
@@ -87,7 +88,7 @@ const Cats = () => {
     return <p>{Error}</p>;
   }
   if (loading) {
-    return(<><Spinner></Spinner> <p>Loading...</p></>);
+    return(<LoadingSpinner />);
   }
 
   const SwitchData = (data) => {

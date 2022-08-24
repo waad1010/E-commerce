@@ -2,17 +2,15 @@ import SECURE from "../pictures/Cats/15.webp";
 import "./cardpay.css";
 import axios, { AxiosError } from "axios";
 import Spinner from "../home page/Spinner";
-
+import LoadingSpinner from '../UI/LoadingSpinner'
 import React, { useState, useContext } from "react";
-
-import FlashMessage from "react-flash-message";
-import { useNavigate } from "react-router-dom";
-import Success from "../Flash/Success";
-import Error from "../Flash/Error";
+import { toast } from "react-toastify";
+import AuthContext from "../store/auth-context";
 import AuthCart from "../store/cart-context";
 
 const Cardpay = () => {
-  const authCart = useContext(AuthCart);
+  const ctx = useContext(AuthCart);
+  var userInfo= JSON.parse(localStorage.getItem("USER"));
   
 
   const [cardnum, setcardnum] = useState("");
@@ -22,7 +20,7 @@ const Cardpay = () => {
   const [country, setcountry] = useState("");
   const [address, setaddress] = useState("");
   const [done, setDone] = useState({ status: null });
-  console.log(authCart.items);
+  console.log(ctx.items);
   //Num
   const handlenum = (e) => {
     setcardnum(e.target.value);
@@ -38,17 +36,61 @@ const Cardpay = () => {
     setaddress(e.target.value);
   };
 
+
+
+  // when click on submit button .
+  const handleSubmit = (e) => {
+   console.log(ctx.items);
+    e.preventDefault();
+
+    const OrderData = {
+      total_price : ctx.totalAmount,
+      u_id : userInfo.Id,
+      address,
+      cardnum,
+      data : ctx.items
+
+  }
+    
+
+    setLoading(true);
+    axios
+    .post("http://localhost:8080/payment", OrderData)
+    .then((res) => {
+      
+      setLoading(false); 
+      toast.success("Successfuly Ordered!");
+
+      setpin("");
+      setaddress("");
+      setcardnum("");
+      setcountry(""); 
+    
+    })
+      
+
+
+    .catch (error => {
+      setLoading(false);
+      
+      toast.error(error.response.data)
+  })
+        
+      clear();
  
+   
+  };
   const clear = () => {
     setDone({ status: null });
   };
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <LoadingSpinner />
+  // }
 
   return (
-    <>
+    
+    loading ? <LoadingSpinner /> : ( <>
       <img className="Imagepay" src={SECURE}></img>
      
       <div className="Payment">
@@ -57,11 +99,11 @@ const Cardpay = () => {
           <strong>Check Out</strong>{" "}
         </div>
 
-        <form className="pay" >
+        <form className="pay" onSubmit={handleSubmit}>
           <div className="l2">
             <label>Card Number: </label>
             <input
-              type="text"
+              type="number"
               value={cardnum}
               required
               onChange={(e) => {
@@ -73,7 +115,7 @@ const Cardpay = () => {
           <div className="l2">
             <label>PIN code:</label>
             <input
-              type="text"
+              type="number"
               value={pin}
               required
               onChange={(e) => {
@@ -86,7 +128,7 @@ const Cardpay = () => {
             <label>Phone Number:</label>
             <select
               className="sel1"
-              type="text"
+              type="number"
               value={country}
               required
               onChange={(e) => {
@@ -131,7 +173,10 @@ const Cardpay = () => {
           <button type="submit"> Submit</button>
         </form>
       </div>
-    </>
+      </>
+    )
+            
+    
   );
 };
 

@@ -1,9 +1,8 @@
 import Signup from "./Sign in-out/Signup";
 import Signin from "./Sign in-out/Signin";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Home from "./home page/Home";
 import A from "./card/A";
-import FlashMessage from "react-flash-message";
 import Cardpay from "./security payment/Cardpay";
 import React, { useState , useContext } from "react";
 import Adminhome from './admin/Adminhome'
@@ -17,11 +16,16 @@ import Searchcont from "./Search/Searchcont";
 import AuthContext from "./store/auth-context";
 import Error from './Flash/Error'
 import ProDetails from "./card/ProDetails";
+import Footer from "./home page/Footer";
 
 function App() {
 
   const authSign = useContext(AuthContext)
   const [clicked, setClicked] = useState(false);
+  
+  const red = () => {
+    toast.error("You have to log in first")
+  }
 
   const clickHandler = () => {
     setClicked(true);
@@ -30,7 +34,7 @@ function App() {
   const hidden = () => {
     setClicked(false);
   };
-  toast.success("XX");
+  
   
   return (
     <> 
@@ -38,7 +42,7 @@ function App() {
       
      
         {clicked && <Cart onClose={hidden} />}
-        <Navbar show={clickHandler} />
+        {/* <Navbar show={clickHandler} /> */}
         
 
         
@@ -47,21 +51,24 @@ function App() {
         <Route path="/" element={<Home />}></Route>
         <Route path="/Signin" element={<Signin />} />
         <Route path="/Searched" element={<Searchcont />} />
-        <Route path='/admin' element = {<Adminhome />} />
+        <Route path='/admin/*' element = {<Adminhome />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/:category/items" element={ <Spec />}/>
         <Route path="/all" element={<A />} />
         <Route path='/product/:p_id' element ={<ProDetails />}></Route>
        <Route path="/payment" element={authSign.isLoggedIn ? <Cardpay /> :
-        (<><FlashMessage Duration={8000}>
-            <Error text="You have to log in to order!" />
-          </FlashMessage>
+        (<>
+          <Navigate to="/Signin" replace  />
+           
+          
           </>)} />
        <Route
         path="*"
         element={<Navigate to="/" replace />}
     />
-      </Routes>
+    </Routes>
+    <Footer />
+      
    
     
  

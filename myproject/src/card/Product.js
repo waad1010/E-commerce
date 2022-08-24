@@ -18,10 +18,14 @@ export default function Product(props) {
         title : props.title,
         amount : amount ,
         price : props.price, 
+        max : +props.count,
 
 
        });
     };
+    const avg = props.number ? props.rates / props.number : 0 ;
+
+    console.log("DATA IS " , props.rates , props.number)   
   return (
   <div class="a-box">
      <Link to={`/product/${props.id}`}>
@@ -42,11 +46,14 @@ export default function Product(props) {
     <div>
       {props.description}
   </div>
+  {props.count > 0 ?
+                <div className="stockStatus">In Stock : {props.count}</div>
+                :<div className="out">out of Stock</div>} 
   
-  <div ><Form onAddToCart ={addHandler}/>
-  <span className='Rate'><Rating  text=' 5 reviews'/></span>
+  <div ><Form max ={props.count } onAddToCart ={addHandler}/>
+  <span className='Rate'><Rating  value = {avg} text= {` ${props.number ? props.number : 0}  reviews` }/></span>
   
-  </div>
+  </div>          
 </div>
 </div>
   );

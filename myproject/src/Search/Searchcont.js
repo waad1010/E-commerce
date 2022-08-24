@@ -4,16 +4,24 @@ import axios from "axios";
 import styles from "./Searched.module.css";
 import Item from "./Item";
 import Card from "../UI/Card";
+import Search from "./Search";
+import Spinner from "../home page/Spinner";
+import LoadingSpinner from "../UI/LoadingSpinner";
 const Searchcont = (props) => {
   const location = useLocation();
+  console.log("stating "  ,location.state.toLowerCase());
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [Error, setError] = useState(null);
-
+  const [Filtred, setFiltered] = useState([]);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   useEffect(() => {
     const fetchM = async () => {
          const res = await axios.get(`http://localhost:8080/all`);
          const Data = await res.data;
+         console.log("sub")
 
     //   const Data = [
     //     {
@@ -74,10 +82,13 @@ const Searchcont = (props) => {
     //       price: 2500,
     //     },
     //   ];
+
+    //console.log("NEWING " , location.state.toLowerCase());
+   
       const categoryItems = Data.filter((item) =>
         item.title.toLowerCase().includes(location.state.toLowerCase())
       );
-      //  console.log(categoryItems)
+        console.log("here is " ,  categoryItems)
       //  console.log(res.data);
 
       const loaded = [];
@@ -90,29 +101,43 @@ const Searchcont = (props) => {
           description: categoryItems[k].description,
           pic : categoryItems[k].pic,
           cid : categoryItems[k].cat_id,
+          rates:categoryItems[k].rates,
+          count : categoryItems[k].count,
+          number : categoryItems[k].number,
         });
       }
       console.log(loaded);
       setProducts(loaded);
+      setFiltered(loaded);
       setLoading(false);
     };
     fetchM().catch((e) => {
       setLoading(false);
       setError(e.message);
     });
-  }, []);
+  }, [location.state.toLowerCase()]);
 
   if (Error) {
     return <p>{Error}</p>;
   }
   if (loading) {
-    return <p>is Loading...</p>;
+    return <LoadingSpinner />
   }
   // console.log("from s " + location.state);
   console.log(products);
+
+  const SwitchData = (data) => {
+    if (data.length) setProducts(data);
+  };
   return (
     <section className={styles.meals}>
+        <Search 
+                    onSearch={SwitchData}
+                    data={Filtred}/>
+        <br></br>
+        <br></br>
       <Card>
+      
         <ul>
           {products.map((m) => (
             
@@ -124,6 +149,7 @@ const Searchcont = (props) => {
               des={m.description}
               pic={m.pic}
               cid={m.cid}
+              count={m.count}
             ></Item>
           ))}
         </ul>

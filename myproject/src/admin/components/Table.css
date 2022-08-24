@@ -1,0 +1,249 @@
+
+ 
+ .Tablecontainer {
+    width: 950px;
+    margin: auto;
+ }
+
+ 
+ .Tablecontainer .filterBar {
+    margin: 20px 0px;
+ }
+ 
+ .Tablecontainer label {
+    font-weight: 600;
+    text-transform: uppercase;
+ }
+ .Tablecontainer table {
+    width: 100%;
+ }
+ 
+ .Tablecontainer th,  .Tablecontainer td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+ }
+ 
+ .Tablecontainer th {
+    text-align: left;
+    background-color: #F2F2F2;
+    color: #65696B;
+ }
+ 
+ .Tablecontainer tr:nth-child(odd) {
+    background: #F9F9F9;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+ }
+ 
+ .Tablecontainer tr:nth-child(even) {
+    background: #FFF;
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+ }
+ 
+ 
+ .Tablecontainer tr:hover {
+    background-color: #EBF5FB;
+    cursor: default;
+    border: 1px solid #67B2E4;
+ }
+ 
+ .Tablecontainer .username {
+    color: #3498DB;
+ }
+ 
+ .fa-trash:before {
+    content: "\f1f8";
+}
+.btn-sm {
+    font-size: 10px;
+}
+.btn-danger {
+ 
+    color:white;
+    
+}
+.btn-danger :hover{
+    background-color:rgb(252, 34, 34) !important;
+}
+.btn-edit :hover{
+    background-color: rgb(122, 230, 122);
+}
+
+.btn{
+    margin-right: 10px;
+    text-align: center;
+   height: 30px;
+   
+}
+
+ .Tablecontainer  a:hover {
+    color: #3498DB;
+    cursor: pointer;
+    text-decoration: underline;
+ }
+ .creating{
+
+   
+ }
+
+ 
+ .createbtn-container {
+   display: inline-block !important;
+   margin-left: 400px !important;
+   width: 150px;
+   height: 50px;
+   padding-bottom: 10px;
+  
+ }
+ 
+ .createbtn {
+   padding: 10px;
+   font-weight: bold;
+   font-size: 15px;
+   border-radius: 4px;
+   width: 100px;
+   height: 58px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+ }
+ .btn2 {
+   background-color: #ffffff;
+   border: 3px solid black;
+   color:rgb(42, 41, 41);
+   text-transform: uppercase;
+   width: 100%;
+  
+   box-shadow: 0px 6px rgb(41 0 0);
+   cursor: pointer;
+ }
+ .btn2:hover {
+   transform: scale(1.05);
+ }
+ 
+ .btn2:active {
+   text-shadow: 0px 2px rgba(252, 77, 77, 0.5);
+   box-shadow: 0px 0px rgb(249, 95, 95);
+   transform: translateY(6px);
+ }
+ 
+ 
+ 
+ /* .activeUser {
+    color: #03AB61;
+ } */
+ 
+ /* .bannedUser, .suspendedUser {
+    font-weight: 600;
+ } */
+ .bannedUser {
+    color: red;
+ }
+ 
+ .suspendedUser {
+    color: #FF8C00;
+ }
+ 
+ .commenter {
+    color: #9A9DA0;
+ }
+ 
+ .admin, .staff, .moderator {
+    font-weight: 600;
+ }
+ 
+
+ 
+ .talk {
+    text-transfor: uppercase;
+    font-size: 24px;
+ }
+ 
+ /* .Tablecontainer .active {
+    background-color: #F77160;
+    color: white;
+ } */
+ 
+ .roleHead {
+    width: 115px;
+ }
+ 
+ .statusHead {
+    width: 115px;
+ }
+ 
+ .Tablecontainer i {
+    float: right;
+    padding: 0px 15px;
+    color: #787D80;
+    font-size: 12px;
+ }
+ 
+ .Tablecontainer td.activeUser:hover,  .Tablecontainer td.suspendedUser:hover,  .Tablecontainer td.bannedUser:hover,  .Tablecontainer td.commenter,  .Tablecontainer td.staff,  .Tablecontainer td.admin,  .Tablecontainer td.moderator {
+    cursor: pointer;
+ }
+ 
+ .Tablecontainer tr.table-header {
+   border: 1px solid #BBBEBF;
+ }
+ 
+ .Tablecontainer .styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 100%;
+ }
+ 
+ .Tablecontainer .styled-select {
+    margin-top: 5px;
+    width:200px;
+    border-radius: 2px;
+    border: 1px solid #9A9DA0;
+    color: #3B4A53;
+ }
+ 
+ .Tablecontainer .filter-ui, .search-ui {
+    display: inline-block;
+ }
+ 
+ .Tablecontainer input[type=text] {
+   padding: 6px;
+   margin-top: 5px;
+   font-size: 14px;
+   width: 300px;
+   border: 1px solid #9A9DA0;
+   border-radius: 2px;
+ }
+ 
+ .search-container button {
+   padding: 10px 5px;
+   margin-right: 16px;
+   background: #ddd;
+   font-size: 17px;
+   border: none;
+   border-radius: 2px;
+   cursor: pointer;
+ }
+ 
+ 
+ ::-webkit-input-placeholder {
+   color: #BBBEBF;
+   font-size: 13px;
+ }
+ ::-moz-placeholder {
+   color: #BBBEBF;
+   font-size: 13px;
+ }
+ :-ms-input-placeholder {
+   color: #BBBEBF;
+   font-size: 13px;
+ }
+ ::placeholder {
+   color: #BBBEBF;
+   font-size: 13px;
+ }
+ 
+ 

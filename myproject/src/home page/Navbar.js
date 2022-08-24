@@ -29,12 +29,13 @@ const Navbar = (props) => {
 
 
         </NavLink> 
-        {isLoggedIn && (
+        <div >{isLoggedIn && (
   
         
-        <span className={styles.welcome}>Welcome {user.FName} </span>
+        <div className={styles.welcome}>Welcome {user.FName} </div>
          ) }
-       
+       </div>
+        
       
         
       <span className={styles.sign}>

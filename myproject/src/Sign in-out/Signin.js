@@ -5,10 +5,12 @@ import "./Sign.css";
 import SigninPic from "../pictures/Cats/13.webp";
 import axios from "axios";
 import AuthContext from "../store/auth-context";
-import FlashMessage from "react-flash-message";
+
 import Success from "../Flash/Success";
 import Error from "../Flash/Error";
 import { Typewriter } from 'react-simple-typewriter'
+import { toast } from "react-toastify";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -52,16 +54,21 @@ const Signin = () => {
         console.log(res.data.Id);
         AuthSign.login(res.data);
         // localStorage.setItem("USER", JSON.stringify(res.data));
+        toast.success("Successfuly Logged in!");
       
        setDone({ status: 'Done' });
+       
        setTimeout( ()=>{
+       
          nav("/", { replace: true });
        } , 700)
+       
        
        
       })
       .catch((e) => {
         setDone({ status: e.response.data });
+        toast.error(e.response.data);
         console.log(e);
       });
       clear();
@@ -81,16 +88,16 @@ const Signin = () => {
         <img className="IMG1" src={SigninPic}></img>
        
         <div className="hey">
-        {done.status === 'Done' && (
-          <FlashMessage Duration={8000}>
+        {/* {done.status === 'Done' && (
+          
             <Success text="Successfuly Logged in!" />
-          </FlashMessage>
+      
         )}
         {done.status && done.status !== "Done" && (
-          <FlashMessage Duration={8000}>
+      
             <Error text={done.status} />
-          </FlashMessage>
-        )}
+         
+        )} */}
          <strong className="titlex">
                     <Typewriter
                         words={['Welcome Again!']}

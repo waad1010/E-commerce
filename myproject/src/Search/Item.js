@@ -13,6 +13,7 @@ const Item = props => {
         title : props.title,
         amount : amount ,
         price : props.price, 
+        max : +props.count
 
 
        });

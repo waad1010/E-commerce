@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { toast } from "react-toastify";
 
 const defaultCart = {
   items: [
@@ -17,7 +18,17 @@ const Red = (state, action) => {
     const isIn = state.items.findIndex((item) => item.id === action.target.id);
     const it = state.items[isIn];
 
+    if (it && it.amount + action.target.amount > action.target.max ){
+      toast.error("You have reached the max amount of this item!");
+      return {
+        items : state.items,
+        totalAmount : state.totalAmount,
+      }
+      
+    }
+
     if (it) {
+     
       let updatedOne;
       updatedOne = {
         ...it,
@@ -28,7 +39,7 @@ const Red = (state, action) => {
       return {
         items: newone,
 
-        totalAmount:
+         totalAmount:
           state.totalAmount + action.target.amount * action.target.price,
       };
     } else

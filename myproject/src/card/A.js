@@ -4,6 +4,7 @@ import data from "../Data";
 import { useState, useEffect, useRef } from "react";
 import Search from "../Search/Search";
 import axios from "axios";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 function A() {
   const [products, setProducts] = useState([]);
@@ -36,7 +37,7 @@ function A() {
       const loaded = [];
 
       for (const k in Data) {
-        console.log("zz : " + Data[k].Id);
+        console.log("zz : " + Data[k].number);
         loaded.push({
           id: Data[k].Id,
           title: Data[k].title,
@@ -44,6 +45,9 @@ function A() {
           description: Data[k].description,
           pic : Data[k].pic,
           cid : Data[k].cat_id,
+          rates : Data[k].rates,
+          number : Data[k].number,
+          count : Data[k].count
         });
       }
       setFiltered(loaded);
@@ -61,7 +65,7 @@ function A() {
     return <p>{Error}</p>;
   }
   if (loading) {
-    return <p>is Loading...</p>;
+    return <LoadingSpinner />
   }
   const SwitchData = (data) => {
     if (data.length) setProducts(data);

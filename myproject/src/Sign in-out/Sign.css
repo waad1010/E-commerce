@@ -209,7 +209,7 @@ input {
   cursor: pointer;
 }
 
-a {
+.form2 a {
   position: relative;
   left: 20px;
   color: plum;

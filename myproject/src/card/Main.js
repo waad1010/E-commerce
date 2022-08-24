@@ -7,6 +7,7 @@ import Search from '../Search/Search';
 
 export default function Main(props) {
   const { products } = props;
+  console.log("P" , products);
 
  
   return (
@@ -22,7 +23,12 @@ export default function Main(props) {
           <Product key={m.id} id = {m.id} title ={m.title} price ={m.price} 
           description ={m.description}
           pic ={m.pic}
-          cid ={m.cid}>
+          cid ={m.cid}
+          rates = {m.rates}
+          number = {m.number}
+          count = {m.count}
+          
+          >
 
           </Product>
         ))}

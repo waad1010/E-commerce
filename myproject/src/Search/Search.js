@@ -39,6 +39,7 @@ function Search(props) {
 
   const subHandler = ( e ) => {
     e.preventDefault();
+   
     setSearch(true);
     navigate('/searched' , {state : wordEntered});
   

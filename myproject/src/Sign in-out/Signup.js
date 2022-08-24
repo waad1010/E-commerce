@@ -2,14 +2,16 @@
 import axios, { AxiosError } from "axios";
 import Spinner from "../home page/Spinner"
 
+import LoadingSpinner from "../UI/LoadingSpinner";
 import React, { useState } from 'react';
 import "./Sign.css"
 
 import Fader from './Fader';
-import FlashMessage from 'react-flash-message'
+
 import { useNavigate } from "react-router-dom";
 import Success from "../Flash/Success";
 import Error from "../Flash/Error"
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [firstname, setFN] = useState("");
@@ -70,6 +72,7 @@ const Signup = () => {
     .then((res) => {
       
       setLoading(false); 
+      toast.success("Successfuly Registered!");
       setAge("");
       setFN("");
       setConfPassword("");
@@ -128,16 +131,16 @@ const Signup = () => {
    
       <header className="we-header">
       <Fader/>
-        {done.status === 'Done' && (<FlashMessage Duration = {8000}
-        >
+        {/* {done.status === 'Done' && (
+        
           <Success text = "Successfuly Registered!" />
-        </FlashMessage>
+    
         )}
         {
-          done.status && done.status !== 'Done' && (<FlashMessage Duration = {8000}>
+          done.status && done.status !== 'Done' && (
             <Error text={done.status} />
-          </FlashMessage>
-          )}
+        
+          )} */}
         
         {/* <img className="IMG" src={Signupimg}></img> */}
        
@@ -156,9 +159,10 @@ const Signup = () => {
               <label> First Name: </label>
               <input
                 type="text"
-                value={firstname}
+               
                 className="input1"
                 required
+                 value={firstname}
                 onChange={(e) => {
                   handleFNChange(e);
                 }}
@@ -223,7 +227,7 @@ const Signup = () => {
             </div>
           </div>
 
-          {loading &&  <p className="loadtitle">Loading...</p>}
+          {loading &&  <p className="loadtitle"><LoadingSpinner /></p>}
            {!loading && <button className="xd" type="submit">
            
          Submit

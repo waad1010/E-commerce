@@ -11,4 +11,11 @@ const getCats = async (req, res) => {
     }
   };
 
-  module.exports = {getCats}
+
+
+   const createCat = async (req, res) => {
+    const { title, Desc, Img} =  req.body;
+    
+    
+   }
+  module.exports = {getCats,createCat}

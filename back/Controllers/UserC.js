@@ -3,6 +3,15 @@ const sql = require("mssql/msnodesqlv8");
 const moment = require("moment");
 const bcrypt = require("bcryptjs");
 
+const getLast = async (req, res ) => {
+  try {
+    let pool = await sql.connect(Config);
+    let allE = await pool.request().query("SELECT TOP 5 * from dbo.Users ORDER BY ID DESC; ");
+    return res.json(allE.recordset);
+  } catch (e) {
+    console.log(e);
+  }
+}
 const getall = async (req, res) => {
   try {
     let pool = await sql.connect(Config);
@@ -80,4 +89,4 @@ const Login = async (req, res) => {
 
 
 
-module.exports = { Login, getall, save };
+module.exports = { Login, getall, save , getLast};

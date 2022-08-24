@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Main from "../card/Main";
 import Search from "../Search/Search";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const Spec = () => {
   const { category } = useParams();
@@ -12,7 +13,9 @@ const Spec = () => {
   const [Error, setError] = useState(null);
   const [Filtred, setFiltered] = useState([]);
   const ref = useRef();
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   useEffect(() => {
     const fetchM = async () => {
       const res = await axios.get(`http://localhost:8080/all`);
@@ -96,8 +99,11 @@ const Spec = () => {
           title: categoryItems[k].title,
           price: categoryItems[k].price,
           description: categoryItems[k].description,
-          pic : categoryItems[k].pic,
-          cid : categoryItems[k].cat_id,
+          pic: categoryItems[k].pic,
+          cid: categoryItems[k].cat_id,
+          rates: Data[k].rates,
+          number: Data[k].number,
+          count: Data[k].count,
         });
       }
       setFiltered(loaded);
@@ -114,7 +120,7 @@ const Spec = () => {
     return <p>{Error}</p>;
   }
   if (loading) {
-    return <p>is Loading...</p>;
+    return <LoadingSpinner />
   }
   const SwitchData = (data) => {
     if (data.length) setProducts(data);
@@ -123,13 +129,13 @@ const Spec = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
-    <div  className="App">
-      <h2 className="title">Products</h2>
-      <Search 
-        handleClick={handleClick}
-      onSearch={SwitchData} data={Filtred} />
-      <div  ref = {ref}  className="row">
-        <Main  products={products}></Main>
+    <div className="App">
+      <h2 ref={ref} className="title">
+        Products
+      </h2>
+      <Search handleClick={handleClick} onSearch={SwitchData} data={Filtred} />
+      <div className="row">
+        <Main products={products}></Main>
       </div>
     </div>
   );

@@ -120,8 +120,9 @@
        .welcome {
         position: relative;
         left: -290px !important;
-        color: #ddd;
-        font-size: x-large;
+        color: #ddd;  
+        font-size: 20px;
+        
         font-weight: 700;
     
       
