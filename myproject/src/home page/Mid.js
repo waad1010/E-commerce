@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
-import IMG2 from "../pictures/Cats/2.jpg"
+import IMG2 from "../staticpic/Cats/2.jpg"
 import "./home.css";
-import IMG3 from "../pictures/Cats/3.jpg"
+import IMG3 from "../staticpic/Cats/3.jpg"
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper';

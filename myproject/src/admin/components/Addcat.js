@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "./Addcat.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 const Addcat = (props) => {
   const [title, setTitle] = useState();
+  const nav = useNavigate();
   const [Desc, setDesc] = useState();
   const [Img, setImg] = useState();
   const [Uploading ,setUploading] = useState(false);
@@ -14,31 +18,50 @@ const Addcat = (props) => {
       Desc,
       Img,
     };
+    console.log("to be" , datatoadd);
 
     axios
     .post("http://localhost:8080/addcategory", datatoadd)
     .then((res) => {
       
-      setDesc('')
-      setImg('')
-      setTitle('')
+      setDesc('');
+      // setImg('null');
+      setTitle('');
+      toast.success("A new category is added!");
+      nav("/admin", { replace: true });
+ 
+    })
+    .catch (e =>{
+      console.log(e)
+      toast.error(e);
     })
   };
 
   const uploadFileHandler = async (e) => {
+    console.log("ASDASD" , e.target.files[0])
+ 
     const file = e.target.files[0];
+    
     const formData = new FormData();
-    formData.append("image", file);
+  
+    formData.append("img", file);
+
     setUploading(true);
-    try {
+    try {   
       const config = {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       };
-      const { data } = await axios.post("/api/upload", formData, config);
-      setImg(data);
+      console.log("xd");
+      const { data } = await axios.post("http://localhost:8080/api/upload", formData, config);
+      const newData = data.split("\\");
+      console.log("ADSAD " , newData);
+      setImg(newData[2]);
       setUploading(false);
+      console.log("ur data" , Img , newData[2]);
+      
+
     } catch (err) {
       console.log(err);
       setUploading(false);
@@ -47,9 +70,9 @@ const Addcat = (props) => {
   return (
     <div class="addcat">
       <div class="col-md-12">
-        <form>
+        <form onSubmit={AddHandler}>
           <span className="mrgn">
-            <button style={{ border: "none" }}>
+            <button style={{ border: "none" }} onClick={props.notClicked}>
               <i
                 class="far fa-window-close"
                 aria-hidden="true"
@@ -81,9 +104,9 @@ const Addcat = (props) => {
             <label for="img">Category image :</label>
             <input type="file" 
             
-            value={Img}
+           
              onChange={(e) => {
-                uploadFileHandler(e.target.value)
+                uploadFileHandler(e)
              }}
             accept="image/*" id="img" name="img" />
           </fieldset>

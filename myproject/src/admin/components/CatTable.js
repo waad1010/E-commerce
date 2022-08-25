@@ -3,19 +3,26 @@ import "./Table.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import Addcat from "./Addcat";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const CatTable = (props) => {
-  const { data, heads } = props;
-const [Clicked , setClicked] = useState(false);
+  const { data, heads, DeleteCat } = props;
+  const [Clicked, setClicked] = useState(false);
+
+
+  
   const AddCatHandler = () => {
-    setClicked(true);
-  }
+    setClicked(!Clicked);
+  };
   // console.log("uses are " , data[0].ID);
 
-  return (Clicked ? <Addcat /> : (
+  return Clicked ? (
+    <Addcat notClicked={AddCatHandler} />
+  ) : (
     <div class="Tablecontainer">
       <section class="filterBar">
-        
         <div class="search-ui">
           <label for="search">Search</label>
           <div class="search-container">
@@ -47,13 +54,12 @@ const [Clicked , setClicked] = useState(false);
             </select>
           </div>
         </div> */}
-           
-    <div class="createbtn-container">
-      <button class="btn2 createbtn" id="btn2" onClick={AddCatHandler}>+ Create </button>
-    </div>
-        
 
-     
+        <div class="createbtn-container">
+          <button class="btn2 createbtn" id="btn2" onClick={AddCatHandler}>
+            + Create{" "}
+          </button>
+        </div>
       </section>
 
       <table>
@@ -62,12 +68,11 @@ const [Clicked , setClicked] = useState(false);
             <th>{h}</th>
           ))}
           <th class="statusHead">Actions</th>
-
         </tr>
 
         {data.map((d) => (
           <tr>
-            {console.log(d.ID)}
+     
             <td class="username">{d.Id}</td>
             <td class="username">{d.title}</td>
             <td>{d.description}</td>
@@ -79,17 +84,19 @@ const [Clicked , setClicked] = useState(false);
                 </button>
               </span>
               <span className="btn-danger">
-                <button type="button" className="btn btn-sm">
+                <button
+                  type="button"
+                  className="btn btn-sm"
+                  onClick={() => {DeleteCat(d.Id)}}
+                >
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </span>
             </td>
           </tr>
-
         ))}
       </table>
     </div>
-  )
   );
 };
 

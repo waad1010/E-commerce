@@ -9,6 +9,7 @@ import Users from './pages/Users';
 import CatView from './pages/CatView'
 import Orders from './pages/Orders';
 import ItemsView from './pages/ItemsView';
+import Addcat from './components/Addcat';
 
 
 const Adminhome = () => {
@@ -29,6 +30,8 @@ const Adminhome = () => {
     <Route path ='products' element = {<ItemsView />} ></Route> 
     <Route path ='orders' element = {<Orders />} ></Route> 
     <Route path ='categories' element = {<CatView />} ></Route> 
+ 
+   
   </Routes>
 
 </div>

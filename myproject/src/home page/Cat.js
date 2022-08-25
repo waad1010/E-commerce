@@ -7,7 +7,7 @@ const Cat = (props) => {
  const { id , title, desc , img} = props;
  
 //  console.log("THE ID : " + id);
-// console.log("your img " + img);
+console.log("your img " + img);
 
 
 
@@ -15,7 +15,7 @@ const Cat = (props) => {
         <Link className = "card" to= {`./${id}/items`}>
     
       <div class="imgBx">
-          <img src= {require(`../pictures/Cats/${img}`) }alt="images" />
+          <img src= {require(`../../../pictures/${img}`) }alt="images" />
       </div>
       <div class="details">
         <br></br>

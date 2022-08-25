@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Sign.css";
-import SigninPic from "../pictures/Cats/13.webp";
+import "./Sign.css";  
+import SigninPic from "../staticpic/Cats/13.webp";
+
 import axios from "axios";
 import AuthContext from "../store/auth-context";
 

@@ -67,7 +67,7 @@ function App() {
         element={<Navigate to="/" replace />}
     />
     </Routes>
-    <Footer />
+    {/* <Footer /> */}
       
    
     

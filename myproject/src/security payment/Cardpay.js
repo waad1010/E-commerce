@@ -1,4 +1,4 @@
-import SECURE from "../pictures/Cats/15.webp";
+import SECURE from "../staticpic/Cats/15.webp";
 import "./cardpay.css";
 import axios, { AxiosError } from "axios";
 import Spinner from "../home page/Spinner";

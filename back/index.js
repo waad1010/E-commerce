@@ -7,8 +7,9 @@ const prosR = require('./Routes/ProsR')
 const catsR = require('./Routes/CatsR')
 const CommentR = require('./Routes/CommentsR')
 const OrderR = require('./Routes/OrdersR')
-const uploadRoutes = require("./Routes/uploadRoutes.js")
-
+// const uploadRoutes = require('./Routes/UploadRoutes');
+const router = express.Router();
+const multer = require("multer")
 
 
 app.use(cors())
@@ -22,18 +23,50 @@ app.use(prosR);
 app.use(catsR);
 app.use(CommentR);
 app.use(OrderR);
-app.use("/api/upload", uploadRoutes);
 
 
-// const __dirname = path.resolve();
-// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "/frontend/build")));
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-//   );
-// }
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, "../pictures");
+  },
+  filename : (req, file, cb) => { 
+    console.log("xd" , file)
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
+    );
+  },
+});
+
+
+function checkFileType(file, cb) {  console.log("AA");
+  const fileTypes = /jpg|jpeg|png/;
+  const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
+  const mimetype = fileTypes.test(file.mimetype);
+  return extname && mimetype ? cb(null, true) : cb("Images only!");
+}
+
+const upload = multer({
+  storage,
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+});
+
+app.post('/api/upload', upload.single("img"), (req, res) => {
+    
+  res.send(JSON.stringify(`${req.file.path}`))
+});
+
+
+
+// app.use("/api/upload", uploadRoutes);
+
+
+app.use("/pictures", express.static(path.join(__dirname, "/pictures")));
+
+
 
 app.listen (8080, ()=> {
     console.log('we are on port : 8080');

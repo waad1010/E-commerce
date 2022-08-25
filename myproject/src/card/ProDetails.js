@@ -3,7 +3,6 @@ import { useContext, useEffect, useReducer, useRef, useState } from "react";
 import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import "./ProDetails.css";
 import "./Comment.css";
-import IMG from "../pictures/9/3.jpg";
 import { toast } from "react-toastify";
 import Form from "./Form";
 import Rating from "./Rating";
@@ -319,7 +318,7 @@ console.log("scrolling ")
                   src={
                     This.cat_id &&
                     This.pic &&
-                    require(`../pictures/${This.cat_id}/${This.pic}`)
+                    require(`../../../pictures/${This.pic}`)
                   }
                   alt=""
                   id="product-main-image"

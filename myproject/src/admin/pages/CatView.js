@@ -2,7 +2,10 @@ import React from 'react'
 import CatTable from '../components/CatTable';
 import { useState , useRef, useEffect } from 'react';
 import axios from "axios";
+import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
+import Addcat from '../components/Addcat';
 import LoadingSpinner from '../../UI/LoadingSpinner';
+import { toast } from "react-toastify";
 const CatView = () => {
   
   const [AllCats, setAllCats] = useState([]);
@@ -55,9 +58,30 @@ const heads = ["ID"  , "Title" , "Description" , "IMG" ];
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const DeleteCat = (catId) => {
+    const Filtred = AllCats.filter((item) => +item.Id != +catId); 
+
+    axios
+      .delete(`http://localhost:8080/cats/${catId}`)
+      .then((res) => {
+        toast.success("A category has been deleted!");
+        
+    
+      })
+
+      .catch((error) => {
+
+        toast.error(error.response.data);
+      });
+      setAllCats(Filtred);
+
+
+  };
   return (
    
     <>
+    
             <header>
                 <h2 class="heading" id="dashboard">
                     <label for="nav-toggle">
@@ -69,8 +93,10 @@ const heads = ["ID"  , "Title" , "Description" , "IMG" ];
             
             <main>
               {loading ? <LoadingSpinner /> : 
-          <CatTable data = {AllCats} heads= {heads}/>
+              
+          <CatTable DeleteCat = {DeleteCat} data = {AllCats} heads= {heads}/>
   }
+ 
             </main>
    </>
   )

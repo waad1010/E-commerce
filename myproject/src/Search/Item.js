@@ -24,7 +24,7 @@ console.log(props.id);
 
         <li className={styles.meal}>
             <div>                    <h3 className={styles['meal h3']}>{props.title}</h3>
-            <img className = {styles.searchimg}src={require(`../pictures/${props.cid}/${props.pic}`)} />
+            <img className = {styles.searchimg}src={require(`../../../pictures/${props.pic}`)} />
                 <p className={styles.description}> <em >{props.des}</em></p> 
                 <h2 className={styles.price}>${props.price}</h2>
             </div>
