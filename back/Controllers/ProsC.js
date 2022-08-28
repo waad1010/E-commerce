@@ -46,4 +46,57 @@ const Updatepro = async (req, res) => {
   }
 };
 
-module.exports = { getPros, Specpro, Updatepro };
+const createProd = async (req, res) => {
+  console.log("i am adding")
+  const {  title,
+    Price,
+    Desc,
+    countinstock,
+    catID,
+    Img,} =  req.body;
+
+  console.log(title ,Desc , Img)
+ 
+  try {
+    let pool = await sql.connect(Config);
+  
+    await pool
+    .request()
+    .query(`INSERT INTO Product VALUES 
+    ( '${title}','${Price}' ,'${Desc}' ,'${countinstock}' , '${catID}' ,'${Img}' ,'0' , '0'
+     )`, (err, result) => {
+  
+
+      if (err) throw err;
+      res.status(200).json({
+        title,
+        Price,
+        Desc,
+        countinstock,
+        catID,
+        Img,
+      });
+    });
+} catch (e) {
+  console.log(e.message);
+}
+};
+const DeleteProd = async (req, res) => {
+  try {
+    let pool = await sql.connect(Config);
+    const p_id = req.params.id;
+    console.log(p_id);
+
+    await pool
+      .request()
+      .query(`DELETE FROM Product WHERE Id='${p_id}'`, (err, result) => {
+        if (err) throw err;
+        res.status(200).json({
+         p_id,
+        });
+      });
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+module.exports = { DeleteProd, createProd ,getPros, Specpro, Updatepro };

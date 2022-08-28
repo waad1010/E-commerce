@@ -47,7 +47,7 @@ function A() {
           cid : Data[k].cat_id,
           rates : Data[k].rates,
           number : Data[k].number,
-          count : Data[k].count
+          count : Data[k].count,
         });
       }
       setFiltered(loaded);

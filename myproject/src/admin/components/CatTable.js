@@ -6,54 +6,28 @@ import Addcat from "./Addcat";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import SearchAdmin from "./SearchAdmin";
 
 const CatTable = (props) => {
-  const { data, heads, DeleteCat } = props;
+  const { data, heads, DeleteCat, FData , SwitchData} = props;
   const [Clicked, setClicked] = useState(false);
-
+  const [filtred, setFiltred] = useState();
 
   
   const AddCatHandler = () => {
     setClicked(!Clicked);
   };
-  // console.log("uses are " , data[0].ID);
-
+  
   return Clicked ? (
     <Addcat notClicked={AddCatHandler} />
   ) : (
     <div class="Tablecontainer">
       <section class="filterBar">
-        <div class="search-ui">
-          <label for="search">Search</label>
-          <div class="search-container">
-            <form action="/action_page.php">
-              <input
-                type="text"
-                placeholder="Search by user name or email address..."
-                name="search"
-              />
-              <button type="submit">
-                <i class="fa fa-search"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        {/* <div class="filter-ui">
-          <label for="filters">Show me</label>
-          <div class="styled-select">
-            <select name="accountStatus" id="filters">
-              <option value="active">Everyone</option>
-              <optgroup label="Audience">
-                <option value="commenters">Commenters</option>
-              </optgroup>
-              <optgroup label="Organization">
-                <option value="admins">Admins</option>
-                <option value="moderators">Moderators</option>
-                <option value="banned">Staff</option>
-              </optgroup>
-            </select>
-          </div>
-        </div> */}
+
+        <SearchAdmin  
+            onSearch={SwitchData}
+            data={FData}/>
+      
 
         <div class="createbtn-container">
           <button class="btn2 createbtn" id="btn2" onClick={AddCatHandler}>

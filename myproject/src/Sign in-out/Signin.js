@@ -59,10 +59,9 @@ const Signin = () => {
       
        setDone({ status: 'Done' });
        
-       setTimeout( ()=>{
        
          nav("/", { replace: true });
-       } , 700)
+    
        
        
        

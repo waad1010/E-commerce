@@ -4,6 +4,7 @@ import { useState , useRef, useEffect } from 'react';
 import axios from "axios";
 import ProductsTable from '../components/ProductsTable'
 import LoadingSpinner from '../../UI/LoadingSpinner';
+import { toast } from "react-toastify";
 const ItemsView = () => {
   
   const [AllProducts, setAllProducts] = useState([]);
@@ -12,7 +13,7 @@ const ItemsView = () => {
   const [Filtred, setFiltered] = useState([]);
   const ref = useRef(null);
 
-const heads = ["ID"  , "Title" , "Price" ,"Description" ,"Count in stock" , "CategoryID","IMG" ];
+const heads = ["ID"  , "Title" , "Price" ,"Description" ,"IN stock" , "CategoryID","IMG" ];
   useEffect(() => {
     const fetchM = async () => {
       setLoading(true);
@@ -59,6 +60,28 @@ const heads = ["ID"  , "Title" , "Price" ,"Description" ,"Count in stock" , "Cat
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+  
+  const DeleteProd = (proId) => {
+    const Filtredd = AllProducts.filter((item) => +item.Id != +proId); 
+    const filterF = Filtred.filter((item) => +item.Id != +proId); 
+    axios
+      .delete(`http://localhost:8080/products/${proId}`)
+      .then((res) => {
+        toast.success("A Product has been deleted!");
+        setAllProducts(Filtredd);
+        setFiltered(filterF)
+        
+    
+      })
+
+      .catch((error) => {
+
+        toast.error(error.response.data);
+      });
+     
+
+
+  };
   return (
    
     <>
@@ -72,7 +95,9 @@ const heads = ["ID"  , "Title" , "Price" ,"Description" ,"Count in stock" , "Cat
             </header>
             <main>
               {loading ? <LoadingSpinner /> : 
-          <ProductsTable data = {AllProducts} heads= {heads}/>
+          <ProductsTable FData = {Filtred}
+          SwitchData = {SwitchData}
+          DeleteProd = {DeleteProd} data = {AllProducts} heads= {heads}/>
   }
             </main>
    </>

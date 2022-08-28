@@ -3,8 +3,10 @@ import Mid from "./Mid";
 import Cats from "./Cats";
 
 
-const Home = () => { 
+const Home = ({isAdmin}) => { 
     return ( <>
+
+    
     <Mid />
     <main>
          <Cats></Cats>

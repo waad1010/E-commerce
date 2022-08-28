@@ -4,6 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const userR = require('./Routes/UserR');
 const prosR = require('./Routes/ProsR')
+const compression = require('compression');
 const catsR = require('./Routes/CatsR')
 const CommentR = require('./Routes/CommentsR')
 const OrderR = require('./Routes/OrdersR')
@@ -11,7 +12,7 @@ const OrderR = require('./Routes/OrdersR')
 const router = express.Router();
 const multer = require("multer")
 
-
+app.use(compression());
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

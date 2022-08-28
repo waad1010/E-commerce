@@ -19,7 +19,7 @@ const ProDetails = () => {
   const params = useParams();
   const { p_id } = params;
   
-
+  console.log("XDee"  ,  p_id);
   let reviewsRef  = useRef();
 
 

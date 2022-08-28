@@ -60,7 +60,9 @@ const heads = ["ID"  , "Title" , "Description" , "IMG" ];
   };
 
   const DeleteCat = (catId) => {
-    const Filtred = AllCats.filter((item) => +item.Id != +catId); 
+    const Filtredd = AllCats.filter((item) => +item.Id != +catId); 
+    const filterF = Filtred.filter((item) => +item.Id != +catId); 
+
 
     axios
       .delete(`http://localhost:8080/cats/${catId}`)
@@ -74,7 +76,8 @@ const heads = ["ID"  , "Title" , "Description" , "IMG" ];
 
         toast.error(error.response.data);
       });
-      setAllCats(Filtred);
+      setAllCats(Filtredd);
+      setFiltered(filterF)
 
 
   };
@@ -94,7 +97,9 @@ const heads = ["ID"  , "Title" , "Description" , "IMG" ];
             <main>
               {loading ? <LoadingSpinner /> : 
               
-          <CatTable DeleteCat = {DeleteCat} data = {AllCats} heads= {heads}/>
+          <CatTable  SwitchData = {SwitchData}
+          DeleteCat = {DeleteCat} data = {AllCats} heads= {heads}
+          FData ={Filtred}/>
   }
  
             </main>

@@ -2,6 +2,13 @@ body {
     font-family: 'Helvetica';
   }
 
+
+  .nooverwrite {
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+  }
+
   .block col-2 h1, h2{
     margin: 0.5rem 0;
     font-size: 40px;

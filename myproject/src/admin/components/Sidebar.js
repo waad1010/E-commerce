@@ -1,8 +1,22 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../Adminhome.css";
+import { useContext } from "react";
 
+import AuthContext from "../../store/auth-context";
 const Sidebar = () => {
+  const authLogin = useContext(AuthContext);
+  const nav = useNavigate;
+
+
+  const logoutAdmin = () => {
+   
+    authLogin.logout();
+    setTimeout(()=> {
+ nav('/signin')
+    } , 300)
+   
+  }
   return (
     <>
       <input type="checkbox" id="nav-toggle" />
@@ -17,7 +31,7 @@ const Sidebar = () => {
         <div class="sidebar-menu">
           <ul style={{ paddingLeft: "10px" }}>
             <li>
-              <NavLink to="/admin" >
+              <NavLink to="/" >
                 <span class="fas fa-braille"></span>
                 <span>Dashboard</span>
               </NavLink>
@@ -49,7 +63,19 @@ const Sidebar = () => {
                 <span>Orders</span>
               </NavLink>
             </li>
-          </ul>
+
+
+        
+        
+               
+           
+            
+          </ul>      <span className = "logout" onClick={logoutAdmin}>
+                <span class="	fas fa-sign-out-alt"></span>
+                <span>
+                  LOG OUT
+                </span>
+                </span>
         </div>
       </div>
     </>

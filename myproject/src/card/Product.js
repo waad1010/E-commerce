@@ -24,9 +24,10 @@ export default function Product(props) {
     };
     const avg = props.number ? props.rates / props.number : 0 ;
 
-    console.log("DATA IS " , props.rates , props.number)   
+    console.log("DATA IS " , props.rates , props.number)  
+    console.log(props.id); 
   return (
-  <div class="a-box">
+  <div class="a-box nooverwrite">
      <Link to={`/product/${props.id}`}>
   <div class="img-container">
     <div class="img-inner">
@@ -42,7 +43,7 @@ export default function Product(props) {
   <div class="text-container">
     <h3>{props.title}</h3>
     <div>${props.price}</div>
-    <div>
+    <div className = "nooverwrite">
       {props.description}
   </div>
   {props.count > 0 ?

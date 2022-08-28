@@ -87,6 +87,23 @@ const Login = async (req, res) => {
   );
 };
 
+const DeleteUser = async (req, res) => {
+  try {
+    let pool = await sql.connect(Config);
+    const p_id = req.params.id;
+    console.log(p_id);
 
+    await pool
+      .request()
+      .query(`DELETE FROM Users WHERE ID='${p_id}'`, (err, result) => {
+        if (err) throw err;
+        res.status(200).json({
+         p_id,
+        });
+      });
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 
-module.exports = { Login, getall, save , getLast};
+module.exports = { DeleteUser,Login, getall, save , getLast};

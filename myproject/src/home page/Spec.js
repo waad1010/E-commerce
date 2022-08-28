@@ -87,10 +87,8 @@ const Spec = () => {
 
       //     }
       //  ]
-      const categoryItems = Data.filter((item) => +item.cat_id === +category);
-      //  console.log(categoryItems)
-      //  console.log(res.data);
-
+      const categoryItems = Data.filter((item) => +item.cat_id == +category);
+      
       const loaded = [];
 
       for (const k in categoryItems) {

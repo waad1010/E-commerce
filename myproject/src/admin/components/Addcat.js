@@ -28,7 +28,7 @@ const Addcat = (props) => {
       // setImg('null');
       setTitle('');
       toast.success("A new category is added!");
-      nav("/admin", { replace: true });
+      // nav("/", { replace: true });
  
     })
     .catch (e =>{

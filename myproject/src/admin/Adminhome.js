@@ -30,8 +30,6 @@ const Adminhome = () => {
     <Route path ='products' element = {<ItemsView />} ></Route> 
     <Route path ='orders' element = {<Orders />} ></Route> 
     <Route path ='categories' element = {<CatView />} ></Route> 
- 
-   
   </Routes>
 
 </div>
