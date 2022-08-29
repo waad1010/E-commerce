@@ -8,6 +8,7 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 const Spec = () => {
   const { category } = useParams();
   console.log(category);
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [Error, setError] = useState(null);
@@ -89,9 +90,10 @@ const Spec = () => {
       //  ]
       const categoryItems = Data.filter((item) => +item.cat_id == +category);
       
+      
       const loaded = [];
 
-      for (const k in categoryItems) {
+      for (const k in categoryItems) {console.log(k , categoryItems[k].count);
         loaded.push({
           id: categoryItems[k].Id,
           title: categoryItems[k].title,
@@ -99,13 +101,14 @@ const Spec = () => {
           description: categoryItems[k].description,
           pic: categoryItems[k].pic,
           cid: categoryItems[k].cat_id,
-          rates: Data[k].rates,
-          number: Data[k].number,
-          count: Data[k].count,
+          rates: categoryItems[k].rates,
+          number: categoryItems[k].number,
+          count: categoryItems[k].count,
         });
       }
       setFiltered(loaded);
       setProducts(loaded);
+      console.log("ASDADA" ,  loaded)
       setLoading(false);
     };
     fetchM().catch((e) => {

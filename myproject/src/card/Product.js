@@ -24,8 +24,8 @@ export default function Product(props) {
     };
     const avg = props.number ? props.rates / props.number : 0 ;
 
-    console.log("DATA IS " , props.rates , props.number)  
-    console.log(props.id); 
+    console.log("DATA IS " );  
+    console.log(props.id , props.count); 
   return (
   <div class="a-box nooverwrite">
      <Link to={`/product/${props.id}`}>

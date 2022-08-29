@@ -15,10 +15,10 @@ const defaultCart = {
 
 const Red = (state, action) => {
   if (action.type === "Adding") {
-    const isIn = state.items.findIndex((item) => item.id === action.target.id);
+    const isIn = state.items.findIndex((item) => +item.id === +action.target.id);
     const it = state.items[isIn];
 
-    if (it && it.amount + action.target.amount > action.target.max ){
+    if (it && +it.amount + +action.target.amount > +action.target.max ){
       toast.error("You have reached the max amount of this item!");
       return {
         items : state.items,

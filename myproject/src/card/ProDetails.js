@@ -19,7 +19,7 @@ const ProDetails = () => {
   const params = useParams();
   const { p_id } = params;
   
-  console.log("XDee"  ,  p_id);
+  console.log("XDee"  ,  This.Id);
   let reviewsRef  = useRef();
 
 
@@ -52,7 +52,7 @@ const ProDetails = () => {
   const addHandler = (amount) => {
     ctx.addItem({
       
-      id: p_id,
+      id: This.Id,
       title: This.title,
       amount: amount,
       price: +This.price,

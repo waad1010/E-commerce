@@ -273,6 +273,7 @@ background:linear-gradient(-140deg,#fff,#0ff,#ff004c,#ffcc00,#0ff);
 	background:var(--dark-BG);
 	box-shadow:5px 0 20px rgba(0,0,0,.7);
 	z-index:999;
+
 }
 .adminpage.light .sidebar-menu a:hover
 {

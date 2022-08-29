@@ -73,6 +73,7 @@ function A() {
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+  console.log("OK" , products);
   return (
     <div ref={ref}>
       <h2 className="title">Products</h2>
