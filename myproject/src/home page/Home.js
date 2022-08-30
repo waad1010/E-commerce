@@ -3,7 +3,7 @@ import Mid from "./Mid";
 import Cats from "./Cats";
 
 
-const Home = ({isAdmin}) => { 
+const Home = () => { 
     return ( <>
 
     

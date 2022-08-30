@@ -49,7 +49,7 @@ function App() {
           </Routes>
         ) : (
           <Routes>
-            <Route path="/" element={<Home isAdmin={isAdmin} />}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/Signin" element={<Signin />} />
             <Route path="/Searched" element={<Searchcont />} />
             <Route path="/Signup" element={<Signup />} />

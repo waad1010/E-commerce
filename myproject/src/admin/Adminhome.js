@@ -15,8 +15,7 @@ import Addcat from './components/Addcat';
 const Adminhome = () => {
   return (
  
-  //<div className='AdminPage'></div>
-
+ 
   <>
   
   

@@ -43,7 +43,7 @@ const Comment = (props) => {
           <span class="displayName caption date"> 22/7</span>
         </div>
         {console.log("here we will know " , props.u_id , userInfo.Id)}
-          {userInfo.Id == props.u_id ?
+          {userInfo && userInfo.Id == props.u_id ?
 
         <div>
           <span className="deletespan">
